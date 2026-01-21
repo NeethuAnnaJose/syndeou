@@ -1,0 +1,29 @@
+.animated-graphic {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  background: transparent;
+}
+
+.animated-svg {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  max-width: 600px;
+  max-height: 600px;
+  opacity: 1;
+  display: block;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .animated-svg {
+    max-width: 100%;
+  }
+}
+
