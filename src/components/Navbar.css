@@ -127,3 +127,38 @@
   }
 }
 
+/* Mobile-only styles (max-width: 480px) - Only affects mobile devices */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 15px;
+    height: 60px;
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+
+  .navbar-toggle {
+    padding: 3px;
+  }
+
+  .navbar-toggle span {
+    width: 22px;
+    height: 2.5px;
+    margin: 2.5px 0;
+  }
+
+  .navbar-menu {
+    top: 60px;
+    padding: 15px 0;
+  }
+
+  .navbar-menu li {
+    margin: 8px 0;
+  }
+
+  .navbar-menu li a {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
