@@ -2465,19 +2465,29 @@
 @media (max-width: 480px) {
   /* Hero Section Mobile */
   .hero-section {
-    padding: 20px 15px;
-    height: auto;
+    padding: 0 15px;
+    height: 100vh;
     min-height: 100vh;
+    background-image: url('/images/KID-mobile.jpg');
     background-position: 70% center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+    padding-top: 60px;
   }
 
   .hero-section::before {
-    background-position: 70% center;
+    background-image: url('/images/KID-mobile.jpg');
+    background-position: 50% center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .hero-content-left {
     padding-left: 0;
     max-width: 100%;
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .hero-headline {
