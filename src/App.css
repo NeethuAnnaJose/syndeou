@@ -2468,6 +2468,11 @@
     padding: 20px 15px;
     height: auto;
     min-height: 100vh;
+    background-position: 70% center;
+  }
+
+  .hero-section::before {
+    background-position: 70% center;
   }
 
   .hero-content-left {
