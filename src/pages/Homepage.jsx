@@ -5,6 +5,9 @@ function Homepage() {
   const narrativeSectionRef = useRef(null)
   const fullscreenImageSectionRef = useRef(null)
   const heroSectionRef = useRef(null)
+  const howWeDoItSectionRef = useRef(null)
+  const educationRealitySectionRef = useRef(null)
+  const testimonialsSectionRef = useRef(null)
   const ourStorySectionRef = useRef(null)
   const ourSystemSectionRef = useRef(null)
   const ourTeamSectionRef = useRef(null)
@@ -15,6 +18,9 @@ function Homepage() {
   const [isVisible, setIsVisible] = useState(false)
   const [isImageVisible, setIsImageVisible] = useState(false)
   const [isHeroVisible, setIsHeroVisible] = useState(false)
+  const [isHowWeDoItVisible, setIsHowWeDoItVisible] = useState(false)
+  const [isEducationRealityVisible, setIsEducationRealityVisible] = useState(false)
+  const [isTestimonialsVisible, setIsTestimonialsVisible] = useState(false)
   const [isOurStoryVisible, setIsOurStoryVisible] = useState(false)
   const [isOurSystemVisible, setIsOurSystemVisible] = useState(false)
   const [isOurTeamVisible, setIsOurTeamVisible] = useState(false)
@@ -23,6 +29,10 @@ function Homepage() {
   const [isInvestorFaqVisible, setIsInvestorFaqVisible] = useState(false)
   const [isContactVisible, setIsContactVisible] = useState(false)
   const [selectedTeamMember, setSelectedTeamMember] = useState(0)
+  const [contactModalOpen, setContactModalOpen] = useState(false)
+  const [contactForm, setContactForm] = useState({ name: '', email: '', phone: '' })
+  const [contactSubmitStatus, setContactSubmitStatus] = useState(null)
+  const [showSuccessToast, setShowSuccessToast] = useState(false)
 
   const teamMembers = [
     {
@@ -127,6 +137,19 @@ function Homepage() {
   }, [])
 
   useEffect(() => {
+    if (!contactModalOpen) return
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') closeContactModal()
+    }
+    document.addEventListener('keydown', handleEscape)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = ''
+    }
+  }, [contactModalOpen])
+
+  useEffect(() => {
     const heroObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -147,6 +170,81 @@ function Homepage() {
     return () => {
       if (heroSectionRef.current) {
         heroObserver.unobserve(heroSectionRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    const howWeDoItObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsHowWeDoItVisible(true)
+          } else {
+            setIsHowWeDoItVisible(false)
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+
+    if (howWeDoItSectionRef.current) {
+      howWeDoItObserver.observe(howWeDoItSectionRef.current)
+    }
+
+    return () => {
+      if (howWeDoItSectionRef.current) {
+        howWeDoItObserver.unobserve(howWeDoItSectionRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    const testimonialsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsTestimonialsVisible(true)
+          } else {
+            setIsTestimonialsVisible(false)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    if (testimonialsSectionRef.current) {
+      testimonialsObserver.observe(testimonialsSectionRef.current)
+    }
+
+    return () => {
+      if (testimonialsSectionRef.current) {
+        testimonialsObserver.unobserve(testimonialsSectionRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    const educationRealityObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsEducationRealityVisible(true)
+          } else {
+            setIsEducationRealityVisible(false)
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+
+    if (educationRealitySectionRef.current) {
+      educationRealityObserver.observe(educationRealitySectionRef.current)
+    }
+
+    return () => {
+      if (educationRealitySectionRef.current) {
+        educationRealityObserver.unobserve(educationRealitySectionRef.current)
       }
     }
   }, [])
@@ -308,17 +406,161 @@ function Homepage() {
     }
   }
 
+  const openContactModal = () => setContactModalOpen(true)
+  const closeContactModal = () => {
+    setContactModalOpen(false)
+    setContactForm({ name: '', email: '', phone: '' })
+    setContactSubmitStatus(null)
+  }
+
+  const handleContactInputChange = (e) => {
+    const { name, value } = e.target
+    setContactForm((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault()
+    if (!contactForm.name.trim() || !contactForm.email.trim()) {
+      setContactSubmitStatus('error')
+      return
+    }
+    closeContactModal()
+    setContactForm({ name: '', email: '', phone: '' })
+    setContactSubmitStatus(null)
+    setShowSuccessToast(true)
+    setTimeout(() => setShowSuccessToast(false), 4000)
+  }
+
   return (
     <div className="homepage">
       {/* Hero Section */}
       <section id="home" className="hero-section" ref={heroSectionRef}>
         <div className="hero-content-left">
           <h1 className="hero-headline">
-            Human-centred <span className="highlight-purple">learning systems</span> for institutions
+            Build <span className="highlight-purple">future ready learners</span><br />
+            a way other schools cannot
           </h1>
           <p className="hero-description">
-            Syndeou designs, owns, and licenses integrated learning operating systems that help schools and education operators move beyond fragmented tools toward coherent, sustainable learning environments.
+            Human-Led, AI Personalised, Learning Systems for Schools<br />
+            Making children's academic learning personalised and soft-skill development measurable
           </p>
+          <div className="hero-cta-section">
+            <button type="button" className="button-primary-hero" onClick={openContactModal}>
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Us Modal */}
+      {contactModalOpen && (
+        <div className="contact-modal-overlay" onClick={closeContactModal} role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+          <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="contact-modal-close" onClick={closeContactModal} aria-label="Close">×</button>
+            <h2 id="contact-modal-title" className="contact-modal-title">Contact Us</h2>
+            <form className="contact-modal-form" onSubmit={handleContactSubmit}>
+              <label htmlFor="contact-name">Name <span className="required">*</span></label>
+              <input id="contact-name" type="text" name="name" value={contactForm.name} onChange={handleContactInputChange} placeholder="Your name" required autoComplete="name" />
+              <label htmlFor="contact-email">Email <span className="required">*</span></label>
+              <input id="contact-email" type="email" name="email" value={contactForm.email} onChange={handleContactInputChange} placeholder="your@email.com" required autoComplete="email" />
+              <label htmlFor="contact-phone">Phone <span className="optional">(optional)</span></label>
+              <input id="contact-phone" type="tel" name="phone" value={contactForm.phone} onChange={handleContactInputChange} placeholder="Your phone number" autoComplete="tel" />
+              {contactSubmitStatus === 'error' && <p className="contact-form-error">Please fill in name and email.</p>}
+              <button type="submit" className="contact-modal-submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Success Toast */}
+      {showSuccessToast && (
+        <div className="success-toast" role="status" aria-live="polite">
+          <span className="success-toast-icon" aria-hidden="true">✓</span>
+          <span className="success-toast-message">Thank you! Your details have been submitted.</span>
+        </div>
+      )}
+
+      {/* How We Do It */}
+      <section id="how-we-do-it" className="how-we-do-it-section" ref={howWeDoItSectionRef}>
+        <div className={`how-we-do-it-content ${isHowWeDoItVisible ? 'visible' : ''}`}>
+          <h2 className="how-we-do-it-title">How we do it</h2>
+          <p className="how-we-do-it-intro">
+            We combine human-led design with integrated technology to deliver learning systems that work at scale. Here is our approach.
+          </p>
+          <div className="how-we-do-it-grid">
+            <div className="how-we-do-it-item">
+              <span className="how-we-do-it-number">1</span>
+              <h3 className="how-we-do-it-item-title">Understand the learner</h3>
+              <p className="how-we-do-it-item-desc">We start with a holistic view of each learner — strengths, needs, and context — before placement or personalisation.</p>
+            </div>
+            <div className="how-we-do-it-item">
+              <span className="how-we-do-it-number">2</span>
+              <h3 className="how-we-do-it-item-title">Design the system</h3>
+              <p className="how-we-do-it-item-desc">We build one integrated operating system: curriculum, platform, insight layer, and governance — not separate tools.</p>
+            </div>
+            <div className="how-we-do-it-item">
+              <span className="how-we-do-it-number">3</span>
+              <h3 className="how-we-do-it-item-title">Support the institution</h3>
+              <p className="how-we-do-it-item-desc">We train Guides, certify delivery, and provide ongoing support so schools can sustain the system long term.</p>
+            </div>
+            <div className="how-we-do-it-item">
+              <span className="how-we-do-it-number">4</span>
+              <h3 className="how-we-do-it-item-title">Measure what matters</h3>
+              <p className="how-we-do-it-item-desc">We use AI for insight and visibility — not to replace judgement — so outcomes are measurable and human-led.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education Reality - 3 sections */}
+      <section id="education-reality" className="education-reality-section" ref={educationRealitySectionRef}>
+        <div className={`education-reality-content ${isEducationRealityVisible ? 'visible' : ''}`}>
+        <div className="education-reality-header-wrap">
+          {/* <span className="education-reality-label">The reality</span> */}
+          <h2 className="education-reality-header">Education systems are failing to adapt to the realities of the modern world</h2>
+        </div>
+        <div className="education-reality-grid">
+          <div className="education-reality-item">
+            <span className="education-reality-number" aria-hidden="true">01</span>
+            <div className="education-reality-item-inner">
+              <h3 className="education-reality-heading">Forced Standardisation</h3>
+              <p className="education-reality-text">Students move by age, not by mastery</p>
+            </div>
+          </div>
+          <div className="education-reality-item">
+            <span className="education-reality-number" aria-hidden="true">02</span>
+            <div className="education-reality-item-inner">
+              <h3 className="education-reality-heading">The &quot;Soft-Skill&quot; Gap</h3>
+              <p className="education-reality-text">Emotional intelligence is treated as incidental, not essential.</p>
+            </div>
+          </div>
+          <div className="education-reality-item">
+            <span className="education-reality-number" aria-hidden="true">03</span>
+            <div className="education-reality-item-inner">
+              <h3 className="education-reality-heading">Low ROI</h3>
+              <p className="education-reality-text">High grades no longer guarantee adaptability or problem solving skills</p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className={`testimonials-section ${isTestimonialsVisible ? 'visible' : ''}`} ref={testimonialsSectionRef}>
+        <h2 className="testimonials-title">Testimonials</h2>
+        <div className={`testimonials-list ${isTestimonialsVisible ? 'visible' : ''}`}>
+          <div className="testimonial-card">
+            <blockquote className="testimonial-quote">"I just wanted to say a big thank you for everything you do. Your hard work helps do many people, and it honestly makes me really happy and helps me a lot. You're truly amazing!"</blockquote>
+            <cite className="testimonial-name">BANCA I.</cite>
+          </div>
+          <div className="testimonial-card">
+            <blockquote className="testimonial-quote">"I wanted to tell you how much it calms me when everything is falling apart, and you explain exactly what is happening, the current period. I'm sending you my best wishes to keep going strong and, above all, good health."</blockquote>
+            <cite className="testimonial-name">NIKOS S.</cite>
+          </div>
+          <div className="testimonial-card">
+            <blockquote className="testimonial-quote">"Thank you for your time and inside into the market, you are the best I apreciate your hard work! The companies you choose are great, I'm just trying to figure out if I should buy the dip in both plays, want to minimize risk."</blockquote>
+            <cite className="testimonial-name">EFTHIMIOS V.</cite>
+          </div>
         </div>
       </section>
 

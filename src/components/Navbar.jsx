@@ -26,7 +26,7 @@ function Navbar() {
 
     // Track scroll position to detect active section
     const handleScroll = () => {
-      const sections = ['home', 'what-we-do', 'our-story', 'our-system', 'our-team', 'contact']
+      const sections = ['home', 'how-we-do-it', 'what-we-do', 'our-story', 'our-system', 'our-team', 'contact']
       const scrollPos = window.scrollY + 150
 
       // If at top, set home as active
@@ -90,6 +90,15 @@ function Navbar() {
                     onClick={handleHomeClick}
                   >
                     Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#how-we-do-it"
+                    className={isActive('how-we-do-it') ? 'active' : ''}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    How We Do It
                   </a>
                 </li>
                 <li>
