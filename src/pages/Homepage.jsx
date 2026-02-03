@@ -8,6 +8,9 @@ function Homepage() {
   const howWeDoItSectionRef = useRef(null)
   const educationRealitySectionRef = useRef(null)
   const testimonialsSectionRef = useRef(null)
+  const expertiseSectionRef = useRef(null)
+  const coreTeamSectionRef = useRef(null)
+  const stakeholdersSectionRef = useRef(null)
   const ourStorySectionRef = useRef(null)
   const ourSystemSectionRef = useRef(null)
   const ourTeamSectionRef = useRef(null)
@@ -21,6 +24,10 @@ function Homepage() {
   const [isHowWeDoItVisible, setIsHowWeDoItVisible] = useState(false)
   const [isEducationRealityVisible, setIsEducationRealityVisible] = useState(false)
   const [isTestimonialsVisible, setIsTestimonialsVisible] = useState(false)
+  const [isExpertiseVisible, setIsExpertiseVisible] = useState(false)
+  const [isCoreTeamVisible, setIsCoreTeamVisible] = useState(false)
+  const [isStakeholdersVisible, setIsStakeholdersVisible] = useState(false)
+  const [activeCard, setActiveCard] = useState(null)
   const [isOurStoryVisible, setIsOurStoryVisible] = useState(false)
   const [isOurSystemVisible, setIsOurSystemVisible] = useState(false)
   const [isOurTeamVisible, setIsOurTeamVisible] = useState(false)
@@ -83,6 +90,70 @@ function Homepage() {
       bio: "Developing and implementing educational programmes that align with learning objectives and institutional requirements.",
       carouselImage: "/images/profile_dp7.png",
       mainImage: "/images/profile7.png"
+    }
+  ]
+
+  const stakeholdersAdvisorsTeam = [
+    {
+      name: 'Mohammed Fakhro',
+      position: 'INVESTOR & ENTREPRENEUR',
+      image: '/images/profile_dp4_old.png',
+      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+    },
+    {
+      name: 'Vivenne Ming',
+      position: 'NEUROSCIENTIST & ENTREPRENUR',
+      image: '/images/profile_dp5.png',
+      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+    },
+    {
+      name: 'Stuart Hosking',
+      position: 'CEO & BOARD ADVISOR',
+      image: '/images/profile_dp6.png',
+      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+    },
+    {
+      name: 'Tassos Fragkopoulos',
+      position: 'CEO & BOARD ADVISOR',
+      image: '/images/IMG_4779.JPG.jpeg',
+      companies: ['/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+    },
+    {
+      name: 'Ali Al Khalifa',
+      position: 'INVESTOR & ENTREPRENEUR',
+      image: '/images/profile_dp3.png',
+      companies: ['/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+    }
+  ]
+
+  const coreTeamMembers = [
+    {
+      name: 'Yana Antoniadis',
+      position: 'Co-Founder & CEO',
+      bio: 'Yana has over 15 years of experience as an entrepreneur and consultant, specialising in education, brain development, and child-focused innovation. She is currently Co-Founder and Director of Syndeou and a Director of VGA Holdings.',
+      image: '/images/profile_dp.png',
+      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/syinterprices.png', '/images/vgalogo.png', '/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png']
+    },
+    {
+      name: 'EUGEN BrikciUS',
+      position: 'Chief Growth & Strategy Officer',
+      bio: 'Eugen possess over 10 years of experience as a start-up CEO. His previous companies have been successfully exited to the likes of Alibaba in Asia and MAF Holdings in the GCC.',
+      image: '/images/profile_dp3.png',
+      companies: ['/images/syinterprices.png', '/images/vgalogo.png', '/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png']
+    },
+    {
+      name: 'ADAm harcourt',
+      position: 'Co-Founder & R&D Lead',
+      bio: 'Adam has been involved in ALS development since its early stages. Across projects Adam has contributed in product strategy, market research, and system design. As R&D Lead, he works closely with technical teams on biometrics, data architecture, and applied AI across education platforms.',
+      image: '/images/profile_dp2.png',
+      companies: ['/images/favicon.ico', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/vgalogo.png']
+    },
+    {
+      name: 'BRETT maclagan',
+      position: 'Chief Operating Officer',
+      bio: 'Brett brings over 25 years of experience in management consulting and transformation delivery. He has advised Fortune 500 companies and government entities and previously served as a Senior Advisor at Roland Berger, Arthur D. Little, and McKinsey.',
+      image: '/images/7F19965F-31D4-408D-9F01-0414B1FF634F-export.png',
+      companies: ['/images/favicon.ico', '/images/Playbox-Logo.jpg', '/images/roladberger.png', '/images/syinterprices.png']
     }
   ]
 
@@ -221,6 +292,54 @@ function Homepage() {
       if (testimonialsSectionRef.current) {
         testimonialsObserver.unobserve(testimonialsSectionRef.current)
       }
+    }
+  }, [])
+
+  useEffect(() => {
+    const expertiseObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsExpertiseVisible(true)
+          else setIsExpertiseVisible(false)
+        })
+      },
+      { threshold: 0.15 }
+    )
+    if (expertiseSectionRef.current) expertiseObserver.observe(expertiseSectionRef.current)
+    return () => {
+      if (expertiseSectionRef.current) expertiseObserver.unobserve(expertiseSectionRef.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    const coreTeamObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsCoreTeamVisible(true)
+          else setIsCoreTeamVisible(false)
+        })
+      },
+      { threshold: 0.15 }
+    )
+    if (coreTeamSectionRef.current) coreTeamObserver.observe(coreTeamSectionRef.current)
+    return () => {
+      if (coreTeamSectionRef.current) coreTeamObserver.unobserve(coreTeamSectionRef.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    const stakeholdersObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsStakeholdersVisible(true)
+          else setIsStakeholdersVisible(false)
+        })
+      },
+      { threshold: 0.15 }
+    )
+    if (stakeholdersSectionRef.current) stakeholdersObserver.observe(stakeholdersSectionRef.current)
+    return () => {
+      if (stakeholdersSectionRef.current) stakeholdersObserver.unobserve(stakeholdersSectionRef.current)
     }
   }, [])
 
@@ -545,21 +664,451 @@ function Homepage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className={`testimonials-section ${isTestimonialsVisible ? 'visible' : ''}`} ref={testimonialsSectionRef}>
+      {/* Testimonials - continuous horizontal scroll, pause on hover */}
+      <section id="testimonials" className="testimonials-section" ref={testimonialsSectionRef}>
         <h2 className="testimonials-title">Testimonials</h2>
-        <div className={`testimonials-list ${isTestimonialsVisible ? 'visible' : ''}`}>
-          <div className="testimonial-card">
-            <blockquote className="testimonial-quote">"I just wanted to say a big thank you for everything you do. Your hard work helps do many people, and it honestly makes me really happy and helps me a lot. You're truly amazing!"</blockquote>
-            <cite className="testimonial-name">BANCA I.</cite>
+        <div className="testimonials-scroll-wrap">
+          <div className="testimonials-list">
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;My child needs this system! My child is behind in math because she hasn&apos;t grasped some fundamentals and now her school expects her to learn new content!&quot;</blockquote>
+              <cite className="testimonial-name">Banca I</cite>
+            </div>
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;Why I like the meta learning system — it gives my child personalised tasks based on his learning preferences which is perfect for his ADHD. As well, I get to see how his soft-skills develop over time with the learning. I love this insight and it makes me feel confident about my son&apos;s development.&quot;</blockquote>
+              <cite className="testimonial-name">NIKOS S.</cite>
+            </div>
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;Thank you for your time and insight into the market, you are the best I appreciate your hard work! The companies you choose are great.&quot;</blockquote>
+              <cite className="testimonial-name">EFTHIMIOS V.</cite>
+            </div>
+            {/* Duplicate set for seamless infinite scroll */}
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;My child needs this system! My child is behind in math because she hasn&apos;t grasped some fundamentals and now her school expects her to learn new content!&quot;</blockquote>
+              <cite className="testimonial-name">Banca I</cite>
+            </div>
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;Why I like the meta learning system — it gives my child personalised tasks based on his learning preferences which is perfect for his ADHD. As well, I get to see how his soft-skills develop over time with the learning. I love this insight and it makes me feel confident about my son&apos;s development.&quot;</blockquote>
+              <cite className="testimonial-name">NIKOS S.</cite>
+            </div>
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;Thank you for your time and insight into the market, you are the best I appreciate your hard work! The companies you choose are great.&quot;</blockquote>
+              <cite className="testimonial-name">EFTHIMIOS V.</cite>
+            </div>
           </div>
-          <div className="testimonial-card">
-            <blockquote className="testimonial-quote">"I wanted to tell you how much it calms me when everything is falling apart, and you explain exactly what is happening, the current period. I'm sending you my best wishes to keep going strong and, above all, good health."</blockquote>
-            <cite className="testimonial-name">NIKOS S.</cite>
+        </div>
+        <div className="testimonials-cta-section">
+          <button type="button" className="button-primary-hero" onClick={openContactModal}>
+            Contact Us
+          </button>
+        </div>
+      </section>
+
+      {/* 10+ years expertise - below testimonials */}
+      <section id="expertise" className="expertise-section" ref={expertiseSectionRef}>
+        <h2 className="expertise-header">10+ years of expertise</h2>
+        <div className="expertise-grid">
+          <div className={`expertise-card ${isExpertiseVisible ? 'visible' : ''}`}>
+            <span className="expertise-card-label">2011 | PLAYBAHRAIN</span>
+            <p className="expertise-card-desc">Hands-on Meta Learning at Scale</p>
           </div>
-          <div className="testimonial-card">
-            <blockquote className="testimonial-quote">"Thank you for your time and inside into the market, you are the best I apreciate your hard work! The companies you choose are great, I'm just trying to figure out if I should buy the dip in both plays, want to minimize risk."</blockquote>
-            <cite className="testimonial-name">EFTHIMIOS V.</cite>
+          <div className={`expertise-card ${isExpertiseVisible ? 'visible' : ''}`}>
+            <span className="expertise-card-label">2015 | TODDLER TIME</span>
+            <p className="expertise-card-desc">Teacher to Guide Pedagogical Conversion</p>
+          </div>
+          <div className={`expertise-card ${isExpertiseVisible ? 'visible' : ''}`}>
+            <span className="expertise-card-label">2017 | SAYPLAY</span>
+            <p className="expertise-card-desc">Safe Al and System Integration for Education</p>
+          </div>
+          <div className={`expertise-card ${isExpertiseVisible ? 'visible' : ''}`}>
+            <span className="expertise-card-label">2014 | VGA EVENTS</span>
+            <p className="expertise-card-desc">Family and Engagement Behavioural Intelligence</p>
+          </div>
+          <div className={`expertise-card ${isExpertiseVisible ? 'visible' : ''}`}>
+            <span className="expertise-card-label">2017 | PLAYSY™</span>
+            <p className="expertise-card-desc">Al & Data Driven Adaptive Learning</p>
+          </div>
+          <div className={`expertise-card ${isExpertiseVisible ? 'visible' : ''}`}>
+            <span className="expertise-card-label">2018 | ΜΕΤΑKID & MONEYTREE</span>
+            <p className="expertise-card-desc">Digital Meta Learning and Incentive Design</p>
+          </div>
+        </div>
+      </section>
+
+      {/* The core team - card layout inspired by our team theme */}
+      <section id="core-team" className="our-team-section" ref={coreTeamSectionRef}>
+        <style jsx>{`
+          @keyframes cardSlideIn {
+            from {
+              opacity: 0;
+              transform: translateY(30px) scale(0.95);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+          
+          @keyframes logoFadeIn {
+            from {
+              opacity: 0;
+              transform: scale(0.8) rotate(-10deg);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1) rotate(0deg);
+            }
+          }
+          
+          @keyframes profilePulse {
+            0%, 100% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.05);
+            }
+          }
+          
+          .core-team-card-animated {
+            animation: cardSlideIn 0.6s ease-out both;
+          }
+          
+          .core-team-profile-animated:hover img {
+            animation: profilePulse 2s ease-in-out infinite;
+          }
+        `}</style>
+        <div className={`our-team-content ${isCoreTeamVisible ? 'visible' : ''}`}>
+          <h2 className="our-team-title">The core team</h2>
+          {/* <p className="our-team-subtitle">Meet the leadership team driving Syndeou's vision and innovation.</p> */}
+          
+          {/* Core Team Cards Grid - Beautiful Layout */}
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', padding: '60px 0'}}>
+            {coreTeamMembers.map((member, index) => (
+              <div key={index} className={`expertise-card ${isCoreTeamVisible ? 'visible' : ''} core-team-card-animated`} style={{
+                padding: '20px', 
+                overflow: 'hidden', 
+                borderRadius: '16px',
+                background: 'rgba(255, 255, 255, 0.053)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                cursor: 'pointer',
+                animationDelay: `${index * 0.15}s`
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px) rotateX(5deg)';
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.3)';
+                e.currentTarget.style.border = '2px solid rgba(102, 126, 234, 0.6)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.053)';
+              }}>
+                {/* Profile Image Section */}
+                <div className="core-team-profile-animated" style={{marginBottom: '14px'}}>
+                  <img src={member.image} alt={member.name} style={{
+                    width: window.innerWidth <= 768 ? '80px' : '100px', 
+                    height: window.innerWidth <= 768 ? '80px' : '100px', 
+                    borderRadius: '50%', 
+                    border: '3px solid #fff',
+                    objectFit: 'cover',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                    transition: 'all 0.3s ease'
+                  }} />
+                </div>
+                
+                {/* Content Section */}
+                <div style={{flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                  <h3 style={{margin: '0 0 4px 0', fontSize: window.innerWidth <= 768 ? '1.1rem' : '1.2rem', fontWeight: '700', color: '#333'}}>{member.name}</h3>
+                  <p style={{margin: '0 0 14px 0', fontSize: window.innerWidth <= 768 ? '0.85rem' : '0.9rem', fontWeight: '600', color: '#667eea', lineHeight: '1.3'}}>{member.position}</p>
+                  
+                  <p style={{fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.85rem', lineHeight: '1.5', color: '#555', marginBottom: '20px'}}>{member.bio}</p>
+                  
+                  <div style={{marginTop: 'auto', width: '100%'}}>
+                    <div style={{display: 'flex', flexWrap: 'wrap', gap: window.innerWidth <= 768 ? '6px' : '8px', justifyContent: 'center'}}>
+                      {member.companies.map((logo, i) => (
+                        <div key={i} style={{
+                          width: window.innerWidth <= 768 ? '40px' : '48px', 
+                          height: window.innerWidth <= 768 ? '40px' : '48px', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center',
+                          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
+                          borderRadius: '50%',
+                          padding: window.innerWidth <= 768 ? '6px' : '8px',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.8)',
+                          border: '1px solid rgba(255,255,255,0.5)',
+                          animation: `logoFadeIn 0.5s ease ${i * 0.1}s both`,
+                          transition: 'all 0.3s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-3px) scale(1.15)';
+                          e.currentTarget.style.boxShadow = '0 8px 20px rgba(102, 126, 234, 0.4)';
+                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                          e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.8)';
+                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)';
+                        }}>
+                          <img src={logo} alt="" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))'}} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Stakeholders & Advisors Team */}
+      <section id="stakeholders-advisors" className="our-team-section" ref={stakeholdersSectionRef}>
+        <div className={`our-team-content ${isStakeholdersVisible ? 'visible' : ''}`}>
+          <h2 className="our-team-title">The Stakeholders & Advisors Team</h2>
+          
+          {/* Stakeholders & Advisors Cards Grid - Enhanced Beautiful Layout */}
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: window.innerWidth <= 768 ? '16px' : '24px', padding: window.innerWidth <= 768 ? '40px 0 20px 0' : '40px 0'}}>
+            {stakeholdersAdvisorsTeam.map((member, index) => (
+              <div key={index} className={`expertise-card ${isStakeholdersVisible ? 'visible' : ''} core-team-card-animated ${activeCard === index ? 'mobile-active' : ''}`} style={{
+                padding: '0', 
+                overflow: 'hidden', 
+                borderRadius: window.innerWidth <= 768 ? '16px' : '20px',
+                background: 'rgba(255, 255, 255, 0.053)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                cursor: 'pointer',
+                position: 'relative',
+                height: window.innerWidth <= 768 ? '280px' : '360px',
+                animationDelay: `${index * 0.15}s`
+              }}
+              onMouseEnter={(e) => {
+                if (window.innerWidth > 768) {
+                  e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
+                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,0,0,0.25)';
+                  e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.4)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (window.innerWidth > 768) {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)';
+                  e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+                }
+              }}
+              onClick={() => {
+                if (window.innerWidth <= 768) {
+                  setActiveCard(activeCard === index ? null : index);
+                }
+              }}>
+                {/* Background Image with Zoom Effect */}
+                <div style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                  right: '0',
+                  bottom: '0',
+                  backgroundImage: `url(${member.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transform: 'scale(1.1)'
+                }}></div>
+                
+                {/* Animated Gradient Overlay */}
+                <div style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                  right: '0',
+                  bottom: '0',
+                  background: 'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%)',
+                  transition: 'all 0.6s ease'
+                }}></div>
+                
+                {/* Shimmer Effect */}
+                <div style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '-100%',
+                  width: '100%',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
+                  transition: 'all 0.8s ease'
+                }}></div>
+                
+                {/* Content Container */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: window.innerWidth <= 768 ? '16px' : '24px',
+                  left: window.innerWidth <= 768 ? '16px' : '24px',
+                  right: window.innerWidth <= 768 ? '16px' : '24px',
+                  color: '#fff',
+                  zIndex: 2
+                }}>
+                  {/* Name - Much Lower Initial Position */}
+                  <h3 style={{
+                    margin: '0', 
+                    fontSize: window.innerWidth <= 768 ? '1.2rem' : '1.7rem', 
+                    fontWeight: '800', 
+                    color: '#fff',
+                    textShadow: window.innerWidth <= 768 ? '0 2px 4px rgba(0,0,0,0.8)' : '0 3px 6px rgba(0,0,0,0.7)',
+                    transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                    letterSpacing: window.innerWidth <= 768 ? '-0.3px' : '-0.5px',
+                    lineHeight: '1.2',
+                    transform: (window.innerWidth <= 768 && activeCard === index) ? 'translateY(0)' : (window.innerWidth <= 768 ? 'translateY(60px)' : 'translateY(80px)'),
+                    opacity: (window.innerWidth <= 768 && activeCard === index) ? '1' : (window.innerWidth <= 768 ? '0.9' : '0.8'),
+                    display: 'block',
+                    width: '100%'
+                  }}>{member.name}</h3>
+                  
+                  {/* Hover Content - Initially Hidden */}
+                  <div style={{
+                    marginTop: window.innerWidth <= 768 ? '8px' : '12px',
+                    opacity: (window.innerWidth <= 768 && activeCard === index) ? '1' : '0',
+                    transform: (window.innerWidth <= 768 && activeCard === index) ? 'translateY(0)' : (window.innerWidth <= 768 ? 'translateY(80px)' : 'translateY(100px)'),
+                    transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                    width: '100%'
+                  }}
+                  className="hover-content">
+                    {/* Position with Enhanced Styling */}
+                    <p style={{
+                      margin: '0 0 ' + (window.innerWidth <= 768 ? '12px' : '20px') + ' 0', 
+                      fontSize: window.innerWidth <= 768 ? '0.85rem' : '1.1rem', 
+                      fontWeight: '600', 
+                      color: 'rgba(255, 255, 255, 0.95)',
+                      textShadow: window.innerWidth <= 768 ? '0 1px 3px rgba(0,0,0,0.8)' : '0 2px 4px rgba(0,0,0,0.6)',
+                      letterSpacing: window.innerWidth <= 768 ? '0.3px' : '0.5px',
+                      lineHeight: '1.4'
+                    }}>{member.position}</p>
+                    
+                    {/* Enhanced Company Logos */}
+                    <div style={{
+                      display: 'flex', 
+                      flexWrap: 'wrap', 
+                      gap: window.innerWidth <= 768 ? '6px' : '10px', 
+                      justifyContent: 'flex-start',
+                      alignItems: 'center'
+                    }}>
+                      {member.companies.slice(0, window.innerWidth <= 768 ? 4 : 6).map((logo, i) => (
+                        <div key={i} style={{
+                          width: window.innerWidth <= 768 ? '28px' : '42px', 
+                          height: window.innerWidth <= 768 ? '28px' : '42px', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center',
+                          background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
+                          borderRadius: '50%',
+                          padding: window.innerWidth <= 768 ? '3px' : '6px',
+                          boxShadow: '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)',
+                          animation: `logoFadeIn 0.6s ease ${i * 0.1}s both`,
+                          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                          border: '1px solid rgba(255,255,255,0.6)'
+                        }}
+                        onMouseEnter={(e) => {
+                          if (window.innerWidth > 768) {
+                            e.currentTarget.style.transform = 'scale(1.15) translateY(-2px)';
+                            e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.95)';
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                          e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)';
+                        }}>
+                          <img src={logo} alt="" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))'}} />
+                        </div>
+                      ))}
+                      {member.companies.length > (window.innerWidth <= 768 ? 4 : 6) && (
+                        <div style={{
+                          width: window.innerWidth <= 768 ? '28px' : '42px', 
+                          height: window.innerWidth <= 768 ? '28px' : '42px', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center',
+                          background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)',
+                          borderRadius: '50%',
+                          color: '#fff',
+                          fontSize: window.innerWidth <= 768 ? '0.65rem' : '0.75rem',
+                          fontWeight: '700',
+                          boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+                          border: '1px solid rgba(255,255,255,0.3)',
+                          backdropFilter: 'blur(10px)'
+                        }}>
+                          +{member.companies.length - (window.innerWidth <= 768 ? 4 : 6)}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Enhanced Hover State Styles */}
+                <style jsx>{`
+                  .expertise-card:hover {
+                    border-radius: ${window.innerWidth <= 768 ? '20px' : '24px'} !important;
+                  }
+                  
+                  .expertise-card:hover .hover-content {
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                  }
+                  
+                  .expertise-card:hover h3 {
+                    margin-bottom: ${window.innerWidth <= 768 ? '12px' : '16px'} !important;
+                    transform: translateY(0) !important;
+                    opacity: 1 !important;
+                  }
+                  
+                  .expertise-card.mobile-active {
+                    transform: translateY(-8px) scale(1.02) !important;
+                    box-shadow: 0 16px 48px rgba(0,0,0,0.2) !important;
+                    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+                  }
+                  
+                  .expertise-card.mobile-active .hover-content {
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                  }
+                  
+                  .expertise-card.mobile-active h3 {
+                    margin-bottom: 12px !important;
+                    transform: translateY(0) !important;
+                    opacity: 1 !important;
+                  }
+                  
+                  .expertise-card.mobile-active div:nth-child(1) {
+                    transform: scale(1.1) !important;
+                  }
+                  
+                  .expertise-card.mobile-active div:nth-child(2) {
+                    background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%) !important;
+                  }
+                  
+                  .expertise-card:hover div:nth-child(1) {
+                    transform: scale(1.15) !important;
+                  }
+                  
+                  .expertise-card:hover div:nth-child(3) {
+                    left: '100%' !important;
+                  }
+                  
+                  .expertise-card:hover div:nth-child(2) {
+                    background: 'linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%)' !important;
+                  }
+                `}</style>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -130,22 +130,26 @@
 /* Mobile-only styles (max-width: 480px) - Only affects mobile devices */
 @media (max-width: 480px) {
   .navbar-container {
-    padding: 0 15px;
+    padding: 0 12px;
     height: 60px;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .navbar-logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    flex-shrink: 0;
   }
 
   .navbar-toggle {
     padding: 3px;
+    flex-shrink: 0;
   }
 
   .navbar-toggle span {
-    width: 22px;
-    height: 2.5px;
-    margin: 2.5px 0;
+    width: 20px;
+    height: 2px;
+    margin: 2px 0;
   }
 
   .navbar-menu {
@@ -160,5 +164,27 @@
   .navbar-menu li a {
     padding: 12px 20px;
     font-size: 0.95rem;
+  }
+}
+
+/* Ultra-small screens (max-width: 320px) */
+@media (max-width: 320px) {
+  .navbar-container {
+    padding: 0 10px;
+    height: 55px;
+  }
+
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+
+  .navbar-toggle span {
+    width: 18px;
+    height: 2px;
+    margin: 1.5px 0;
+  }
+
+  .navbar-menu {
+    top: 55px;
   }
 }
