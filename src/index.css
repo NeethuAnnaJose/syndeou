@@ -2,6 +2,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 :root {
@@ -13,7 +33,7 @@
   --gray-light: #f8fafc;
   --gray-medium: #64748b;
   --gray-dark: #334155;
-  
+
   /* New vibrant colors */
   --green: #10b981;
   --light-green: #a7f3d0;
@@ -48,7 +68,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
   filter: blur(80px);
@@ -69,4 +89,3 @@ a {
 ul {
   list-style: none;
 }
-

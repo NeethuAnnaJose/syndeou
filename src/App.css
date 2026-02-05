@@ -660,38 +660,35 @@
 /* 10+ years expertise - strictly one viewport, content capped to fit */
 .expertise-section {
   width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
-  min-height: 0;
-  padding: 6px 10px 8px;
+  min-height: 100vh;
+  padding: 120px 40px 60px;
   margin: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  /* Ensure content starts at top below header */
   background-image: url('/images/our_system_bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: inherit;
   overflow: hidden;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-margin-top: 70px;
 }
 
 .expertise-header {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  font-weight: 700;
-  color: var(--gray-dark);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-blue);
   text-align: center;
-  margin: 0 auto clamp(16px, 3vw, 28px) auto;
-  padding: 0 clamp(16px, 3vw, 24px);
+  margin: 0 auto 60px auto;
+  /* Increased from 40px to 60px */
+  padding-top: 20px;
   flex-shrink: 0;
   line-height: 1.2;
-  font-family: inherit;
+  letter-spacing: -1px;
 }
 
 .expertise-grid {
@@ -2526,7 +2523,7 @@
   display: flex;
   gap: 40px;
   align-items: flex-start;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .button-primary-hero {
@@ -4197,7 +4194,8 @@
 
   .our-team-subtitle {
     font-size: 0.9rem;
-    top: 120px;
+    /* top: 120px; */
+    top: 35px;
     padding: 0 15px;
     max-width: 100%;
   }
@@ -4466,7 +4464,8 @@
   width: 100%;
   min-height: 100vh;
   max-height: none;
-  padding: 80px 40px;
+  padding: 120px 40px 60px;
+  /* Further increased padding for navbar clearance */
   margin: 0;
   position: relative;
   background-image: url('/images/forth_bg.jpg');
@@ -4476,6 +4475,8 @@
   box-sizing: border-box;
   overflow-y: auto;
   scroll-snap-align: start;
+  scroll-margin-top: 70px;
+  /* Prevent sticky header covering the section */
 }
 
 /* Core Team - specific background */
@@ -4494,19 +4495,6 @@
   background-repeat: no-repeat;
 }
 
-/* Hide scrollbars for team sections - all views */
-.our-team-section {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
-}
-
-.our-team-section::-webkit-scrollbar {
-  display: none;
-  /* Chrome, Safari, Opera */
-}
-
 .our-team-content {
   max-width: 1400px;
   width: 100%;
@@ -4518,16 +4506,19 @@
 }
 
 .our-team-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--gray-dark);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primary-blue) !important;
   text-align: center;
-  margin: 60px 0 60px 0;
+  margin: 0 auto 80px auto;
+  /* Increased from 40px to 80px for more gap */
+  padding-top: 50px;
   position: relative;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  font-family: inherit;
+  letter-spacing: -1px;
+  z-index: 10;
 }
 
 .our-team-subtitle {
@@ -4538,6 +4529,176 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Our Team Section - Fit in One Page */
+#our-team.our-team-section {
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  padding: 80px 0 0 0;
+  /* Increased to clear 70px navbar */
+}
+
+#our-team .our-team-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  max-height: 100%;
+  padding: 0;
+  max-width: 100%;
+}
+
+#our-team .our-team-title {
+  font-size: 1.8rem;
+  margin: 20px 0 30px 0;
+  /* Increased from 10px to 30px */
+  flex-shrink: 0;
+  padding: 0 40px;
+}
+
+#our-team .our-team-subtitle {
+  font-size: 1rem;
+  margin: 0 auto 30px auto;
+  flex-shrink: 0;
+  padding: 0 40px;
+  max-width: 600px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
+/* Main Profile Section */
+.our-team-main-profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.our-team-profile-left {
+  text-align: left;
+  padding-right: 20px;
+}
+
+.our-team-profile-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gray-dark);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.our-team-profile-role {
+  font-size: 1.1rem;
+  color: var(--purple);
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.our-team-profile-bio {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--gray-medium);
+  margin: 0;
+}
+
+.our-team-profile-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-team-profile-image {
+  max-width: 350px;
+  width: 100%;
+}
+
+.our-team-profile-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Team Carousel - At Bottom - Full Width */
+.our-team-carousel {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+  padding: 20px 40px;
+  background: transparent;
+  border-top: none;
+  width: 100vw;
+  position: relative;
+  /* left: 50%; */
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.our-team-carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.our-team-carousel-item:hover,
+.our-team-carousel-item.active {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateY(-3px);
+}
+
+.our-team-carousel-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.our-team-carousel-item.active .our-team-carousel-image {
+  border-color: var(--purple);
+}
+
+.our-team-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.our-team-carousel-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+  margin: 0 0 3px 0;
+  line-height: 1.2;
+}
+
+.our-team-carousel-title {
+  font-size: 0.7rem;
+  color: var(--gray-medium);
+  margin: 0;
+  line-height: 1.2;
 }
 
 @media (max-width: 1024px) {
@@ -4611,5 +4772,121 @@
   #stakeholders-advisors .expertise-card {
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  /* Our Team Section Mobile Styles */
+  #our-team.our-team-section {
+    padding: 80px 15px 0 15px;
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  #our-team .our-team-title {
+    font-size: 1.5rem;
+    margin: 10px 0 5px 0;
+    padding: 0 15px;
+  }
+
+  /* Create a wrapper for subtitle and image */
+  #our-team .our-team-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Subtitle full width at top */
+  .our-team-subtitle {
+    font-size: 0.85rem !important;
+    margin: 0 0 25px 0 !important;
+    padding: 0 20px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    order: 1 !important;
+    display: block !important;
+    color: #666 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background: transparent !important;
+    min-height: 40px !important;
+  }
+
+  .our-team-main-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    order: 2;
+  }
+
+  .our-team-profile-left {
+    order: 2;
+    padding-right: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .our-team-profile-right {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .our-team-profile-name {
+    font-size: 1.4rem;
+    margin-top: 5px;
+  }
+
+  .our-team-profile-role {
+    font-size: 0.9rem;
+  }
+
+  .our-team-profile-bio {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .our-team-profile-image {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .our-team-carousel {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 15px;
+    width: 100%;
+    position: static;
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .our-team-carousel-item {
+    padding: 8px;
+  }
+
+  .our-team-carousel-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .our-team-carousel-name {
+    font-size: 0.7rem;
+  }
+
+  .our-team-carousel-title {
+    font-size: 0.65rem;
   }
 }
