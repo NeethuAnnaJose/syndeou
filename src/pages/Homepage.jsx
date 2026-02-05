@@ -97,19 +97,27 @@ function Homepage() {
     {
       name: 'Mohammed Fakhro',
       position: 'INVESTOR & ENTREPRENEUR',
-      image: '/images/profile_dp4_old.png',
+      image: '/images/Mofakhro.jpg',
       companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
     },
     {
       name: 'Vivenne Ming',
       position: 'NEUROSCIENTIST & ENTREPRENUR',
-      image: '/images/profile_dp5.png',
+      image: '/images/vivi.webp',
+      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+    },
+     {
+      name: 'Sama yateem',
+      position: 'INVESTOR & ENTREPRENEUR',
+      image: '/images/samayateem.jpg',
+ 
       companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
     },
     {
       name: 'Stuart Hosking',
       position: 'CEO & BOARD ADVISOR',
-      image: '/images/profile_dp6.png',
+      image: '/images/stuarthosking.png',
+      // "C:\Users\Admin\Desktop\syndeou_website\syndeou_website\public\images\stuarthosking.png"
       companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
     },
     {
@@ -121,7 +129,7 @@ function Homepage() {
     {
       name: 'Ali Al Khalifa',
       position: 'INVESTOR & ENTREPRENEUR',
-      image: '/images/profile_dp3.png',
+      image: '/images/AliAlKhalifa.jpg',
       companies: ['/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
     }
   ]
@@ -135,21 +143,21 @@ function Homepage() {
       companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/syinterprices.png', '/images/vgalogo.png', '/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png']
     },
     {
-      name: 'EUGEN BrikciUS',
+      name: 'Eugen Brikcius',
       position: 'Chief Growth & Strategy Officer',
       bio: 'Eugen possess over 10 years of experience as a start-up CEO. His previous companies have been successfully exited to the likes of Alibaba in Asia and MAF Holdings in the GCC.',
-      image: '/images/profile_dp3.png',
+      image: '/images/EUGENBrikciUS.jpg',
       companies: ['/images/syinterprices.png', '/images/vgalogo.png', '/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png']
     },
     {
-      name: 'ADAm harcourt',
+      name: 'Adam Harcourt',
       position: 'Co-Founder & R&D Lead',
       bio: 'Adam has been involved in ALS development since its early stages. Across projects Adam has contributed in product strategy, market research, and system design. As R&D Lead, he works closely with technical teams on biometrics, data architecture, and applied AI across education platforms.',
       image: '/images/profile_dp2.png',
       companies: ['/images/favicon.ico', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/vgalogo.png']
     },
     {
-      name: 'BRETT maclagan',
+      name: 'Brett Maclagan',
       position: 'Chief Operating Officer',
       bio: 'Brett brings over 25 years of experience in management consulting and transformation delivery. He has advised Fortune 500 companies and government entities and previously served as a Senior Advisor at Roland Berger, Arthur D. Little, and McKinsey.',
       image: '/images/7F19965F-31D4-408D-9F01-0414B1FF634F-export.png',
