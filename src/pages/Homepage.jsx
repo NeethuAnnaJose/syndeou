@@ -877,17 +877,14 @@ function Homepage() {
           <h2 className="our-team-title">The Stakeholders & Advisors Team</h2>
           
           {/* Stakeholders & Advisors Cards Grid - Enhanced Beautiful Layout */}
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: window.innerWidth <= 768 ? '16px' : '24px', padding: window.innerWidth <= 768 ? '40px 0 20px 0' : '40px 0'}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: window.innerWidth <= 768 ? '16px' : '24px', padding: window.innerWidth <= 768 ? '40px 0 20px 0' : '40px 0', justifyContent: 'center', maxWidth: '1200px', margin: '0 auto'}}>
             {stakeholdersAdvisorsTeam.map((member, index) => (
               <div key={index} className={`expertise-card ${isStakeholdersVisible ? 'visible' : ''} core-team-card-animated ${activeCard === index ? 'mobile-active' : ''}`} style={{
                 padding: '0', 
                 overflow: 'hidden', 
                 borderRadius: window.innerWidth <= 768 ? '16px' : '20px',
-                background: 'rgba(255, 255, 255, 0.053)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
                 transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 cursor: 'pointer',
                 position: 'relative',
