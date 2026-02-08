@@ -40,6 +40,7 @@ function Homepage() {
   const [contactForm, setContactForm] = useState({ name: '', email: '', phone: '' })
   const [contactSubmitStatus, setContactSubmitStatus] = useState(null)
   const [showSuccessToast, setShowSuccessToast] = useState(false)
+  const [expandedLogos, setExpandedLogos] = useState({})
 
   const teamMembers = [
     {
@@ -106,11 +107,11 @@ function Homepage() {
       image: '/images/vivi.webp',
       companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
     },
-     {
+    {
       name: 'Sama yateem',
       position: 'INVESTOR & ENTREPRENEUR',
       image: '/images/samayateem.jpg',
- 
+
       companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
     },
     {
@@ -642,33 +643,33 @@ function Homepage() {
       {/* Education Reality - 3 sections */}
       <section id="education-reality" className="education-reality-section" ref={educationRealitySectionRef}>
         <div className={`education-reality-content ${isEducationRealityVisible ? 'visible' : ''}`}>
-        <div className="education-reality-header-wrap">
-          {/* <span className="education-reality-label">The reality</span> */}
-          <h2 className="education-reality-header">Education systems are failing to adapt to the realities of the modern world</h2>
-        </div>
-        <div className="education-reality-grid">
-          <div className="education-reality-item">
-            <span className="education-reality-number" aria-hidden="true">01</span>
-            <div className="education-reality-item-inner">
-              <h3 className="education-reality-heading">Forced Standardisation</h3>
-              <p className="education-reality-text">Students move by age, not by mastery</p>
+          <div className="education-reality-header-wrap">
+            {/* <span className="education-reality-label">The reality</span> */}
+            <h2 className="education-reality-header">Education systems are failing to adapt to the realities of the modern world</h2>
+          </div>
+          <div className="education-reality-grid">
+            <div className="education-reality-item">
+              <span className="education-reality-number" aria-hidden="true">01</span>
+              <div className="education-reality-item-inner">
+                <h3 className="education-reality-heading">Forced Standardisation</h3>
+                <p className="education-reality-text">Students move by age, not by mastery</p>
+              </div>
+            </div>
+            <div className="education-reality-item">
+              <span className="education-reality-number" aria-hidden="true">02</span>
+              <div className="education-reality-item-inner">
+                <h3 className="education-reality-heading">The &quot;Soft-Skill&quot; Gap</h3>
+                <p className="education-reality-text">Emotional intelligence is treated as incidental, not essential.</p>
+              </div>
+            </div>
+            <div className="education-reality-item">
+              <span className="education-reality-number" aria-hidden="true">03</span>
+              <div className="education-reality-item-inner">
+                <h3 className="education-reality-heading">Low ROI</h3>
+                <p className="education-reality-text">High grades no longer guarantee adaptability or problem solving skills</p>
+              </div>
             </div>
           </div>
-          <div className="education-reality-item">
-            <span className="education-reality-number" aria-hidden="true">02</span>
-            <div className="education-reality-item-inner">
-              <h3 className="education-reality-heading">The &quot;Soft-Skill&quot; Gap</h3>
-              <p className="education-reality-text">Emotional intelligence is treated as incidental, not essential.</p>
-            </div>
-          </div>
-          <div className="education-reality-item">
-            <span className="education-reality-number" aria-hidden="true">03</span>
-            <div className="education-reality-item-inner">
-              <h3 className="education-reality-heading">Low ROI</h3>
-              <p className="education-reality-text">High grades no longer guarantee adaptability or problem solving skills</p>
-            </div>
-          </div>
-        </div>
         </div>
       </section>
 
@@ -767,6 +768,21 @@ function Homepage() {
             }
           }
           
+          @keyframes logoPopIn {
+            0% {
+              opacity: 0;
+              transform: scale(0) rotate(-180deg);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.2) rotate(10deg);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1) rotate(0deg);
+            }
+          }
+          
           @keyframes profilePulse {
             0%, 100% {
               transform: scale(1);
@@ -787,13 +803,13 @@ function Homepage() {
         <div className={`our-team-content ${isCoreTeamVisible ? 'visible' : ''}`}>
           <h2 className="our-team-title">The core team</h2>
           {/* <p className="our-team-subtitle">Meet the leadership team driving Syndeou's vision and innovation.</p> */}
-          
+
           {/* Core Team Cards Grid - Beautiful Layout */}
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', padding: '60px 0'}}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', padding: '60px 0' }}>
             {coreTeamMembers.map((member, index) => (
               <div key={index} className={`expertise-card ${isCoreTeamVisible ? 'visible' : ''} core-team-card-animated`} style={{
-                padding: '20px', 
-                overflow: 'hidden', 
+                padding: '20px',
+                overflow: 'hidden',
                 borderRadius: '16px',
                 background: 'rgba(255, 255, 255, 0.053)',
                 backdropFilter: 'blur(20px)',
@@ -808,68 +824,119 @@ function Homepage() {
                 cursor: 'pointer',
                 animationDelay: `${index * 0.15}s`
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px) rotateX(5deg)';
-                e.currentTarget.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.3)';
-                e.currentTarget.style.border = '2px solid rgba(102, 126, 234, 0.6)';
-                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
-                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.053)';
-              }}>
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px) rotateX(5deg)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.3)';
+                  e.currentTarget.style.border = '2px solid rgba(102, 126, 234, 0.6)';
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)';
+
+                  // Collapse other cards' logos when hovering over this card
+                  setExpandedLogos(prev => {
+                    const newState = {};
+                    Object.keys(prev).forEach(key => {
+                      if (key !== 'core-' + index && key.startsWith('core-')) {
+                        // Don't include this key (collapse it)
+                      } else {
+                        newState[key] = prev[key];
+                      }
+                    });
+                    return newState;
+                  });
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) rotateX(0deg)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                  e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.053)';
+                }}>
                 {/* Profile Image Section */}
-                <div className="core-team-profile-animated" style={{marginBottom: '14px'}}>
+                <div className="core-team-profile-animated" style={{ marginBottom: '14px' }}>
                   <img src={member.image} alt={member.name} style={{
-                    width: window.innerWidth <= 768 ? '80px' : '100px', 
-                    height: window.innerWidth <= 768 ? '80px' : '100px', 
-                    borderRadius: '50%', 
+                    width: window.innerWidth <= 768 ? '80px' : '100px',
+                    height: window.innerWidth <= 768 ? '80px' : '100px',
+                    borderRadius: '50%',
                     border: '3px solid #fff',
                     objectFit: 'cover',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                     transition: 'all 0.3s ease'
                   }} />
                 </div>
-                
+
                 {/* Content Section */}
-                <div style={{flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                  <h3 style={{margin: '0 0 4px 0', fontSize: window.innerWidth <= 768 ? '1.1rem' : '1.2rem', fontWeight: '700', color: '#333'}}>{member.name}</h3>
-                  <p style={{margin: '0 0 14px 0', fontSize: window.innerWidth <= 768 ? '0.85rem' : '0.9rem', fontWeight: '600', color: '#667eea', lineHeight: '1.3'}}>{member.position}</p>
-                  
-                  <p style={{fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.85rem', lineHeight: '1.5', color: '#555', marginBottom: '20px'}}>{member.bio}</p>
-                  
-                  <div style={{marginTop: 'auto', width: '100%'}}>
-                    <div style={{display: 'flex', flexWrap: 'wrap', gap: window.innerWidth <= 768 ? '6px' : '8px', justifyContent: 'center'}}>
-                      {member.companies.map((logo, i) => (
+                <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <h3 style={{ margin: '0 0 4px 0', fontSize: window.innerWidth <= 768 ? '1.1rem' : '1.2rem', fontWeight: '700', color: '#333' }}>{member.name}</h3>
+                  <p style={{ margin: '0 0 14px 0', fontSize: window.innerWidth <= 768 ? '0.85rem' : '0.9rem', fontWeight: '600', color: '#667eea', lineHeight: '1.3' }}>{member.position}</p>
+
+                  <p style={{ fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.85rem', lineHeight: '1.5', color: '#555', marginBottom: '20px' }}>{member.bio}</p>
+
+                  <div style={{ marginTop: 'auto', width: '100%' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: window.innerWidth <= 768 ? '6px' : '8px', justifyContent: 'center' }}>
+                      {(expandedLogos['core-' + index] ? member.companies : member.companies.slice(0, window.innerWidth <= 768 ? 4 : 6)).map((logo, i) => (
                         <div key={i} style={{
-                          width: window.innerWidth <= 768 ? '40px' : '48px', 
-                          height: window.innerWidth <= 768 ? '40px' : '48px', 
-                          display: 'flex', 
-                          alignItems: 'center', 
+                          width: window.innerWidth <= 768 ? '40px' : '48px',
+                          height: window.innerWidth <= 768 ? '40px' : '48px',
+                          display: 'flex',
+                          alignItems: 'center',
                           justifyContent: 'center',
                           background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
                           borderRadius: '50%',
                           padding: window.innerWidth <= 768 ? '6px' : '8px',
                           boxShadow: '0 2px 8px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.8)',
                           border: '1px solid rgba(255,255,255,0.5)',
-                          animation: `logoFadeIn 0.5s ease ${i * 0.1}s both`,
+                          animation: expandedLogos['core-' + index] && i >= (window.innerWidth <= 768 ? 4 : 6)
+                            ? `logoPopIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${(i - (window.innerWidth <= 768 ? 4 : 6)) * 0.1}s both`
+                            : `logoFadeIn 0.5s ease ${i * 0.1}s both`,
                           transition: 'all 0.3s ease'
                         }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-3px) scale(1.15)';
-                          e.currentTarget.style.boxShadow = '0 8px 20px rgba(102, 126, 234, 0.4)';
-                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                          e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.8)';
-                          e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)';
-                        }}>
-                          <img src={logo} alt="" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))'}} />
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-3px) scale(1.15)';
+                            e.currentTarget.style.boxShadow = '0 8px 20px rgba(102, 126, 234, 0.4)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.8)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)';
+                          }}>
+                          <img src={logo} alt="" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }} />
                         </div>
                       ))}
+                      {!expandedLogos['core-' + index] && member.companies.length > (window.innerWidth <= 768 ? 4 : 6) && (
+                        <div
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedLogos(prev => ({ ...prev, ['core-' + index]: true }));
+                          }}
+                          style={{
+                            width: window.innerWidth <= 768 ? '40px' : '48px',
+                            height: window.innerWidth <= 768 ? '40px' : '48px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%)',
+                            borderRadius: '50%',
+                            color: '#667eea',
+                            fontSize: window.innerWidth <= 768 ? '0.7rem' : '0.8rem',
+                            fontWeight: '700',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                            border: '1px solid rgba(102, 126, 234, 0.4)',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'scale(1.15)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.5) 0%, rgba(118, 75, 162, 0.5) 100%)';
+                            e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.3)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'scale(1)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%)';
+                            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                          }}
+                        >
+                          +{member.companies.length - (window.innerWidth <= 768 ? 4 : 6)}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -883,13 +950,13 @@ function Homepage() {
       <section id="stakeholders-advisors" className="our-team-section" ref={stakeholdersSectionRef}>
         <div className={`our-team-content ${isStakeholdersVisible ? 'visible' : ''}`}>
           <h2 className="our-team-title">The Stakeholders & Advisors Team</h2>
-          
+
           {/* Stakeholders & Advisors Cards Grid - Enhanced Beautiful Layout */}
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: window.innerWidth <= 768 ? '16px' : '24px', padding: window.innerWidth <= 768 ? '40px 0 20px 0' : '40px 0', justifyContent: 'center', maxWidth: '1200px', margin: '0 auto'}}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: window.innerWidth <= 768 ? '16px' : '24px', padding: window.innerWidth <= 768 ? '40px 0 20px 0' : '40px 0', justifyContent: 'center', maxWidth: '1200px', margin: '0 auto' }}>
             {stakeholdersAdvisorsTeam.map((member, index) => (
               <div key={index} className={`expertise-card ${isStakeholdersVisible ? 'visible' : ''} core-team-card-animated ${activeCard === index ? 'mobile-active' : ''}`} style={{
-                padding: '0', 
-                overflow: 'hidden', 
+                padding: '0',
+                overflow: 'hidden',
                 borderRadius: window.innerWidth <= 768 ? '16px' : '20px',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
@@ -899,25 +966,38 @@ function Homepage() {
                 height: window.innerWidth <= 768 ? '280px' : '360px',
                 animationDelay: `${index * 0.15}s`
               }}
-              onMouseEnter={(e) => {
-                if (window.innerWidth > 768) {
-                  e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
-                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,0,0,0.25)';
-                  e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.4)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (window.innerWidth > 768) {
-                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)';
-                  e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
-                }
-              }}
-              onClick={() => {
-                if (window.innerWidth <= 768) {
-                  setActiveCard(activeCard === index ? null : index);
-                }
-              }}>
+                onMouseEnter={(e) => {
+                  if (window.innerWidth > 768) {
+                    e.currentTarget.style.transform = 'translateY(-12px) scale(1.03)';
+                    e.currentTarget.style.boxShadow = '0 20px 60px rgba(0,0,0,0.25)';
+                    e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.4)';
+
+                    // Collapse other cards' logos when hovering over this card
+                    setExpandedLogos(prev => {
+                      const newState = {};
+                      Object.keys(prev).forEach(key => {
+                        if (key !== String(index) && !key.startsWith('core-')) {
+                          // Don't include this key (collapse it)
+                        } else {
+                          newState[key] = prev[key];
+                        }
+                      });
+                      return newState;
+                    });
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (window.innerWidth > 768) {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)';
+                    e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+                  }
+                }}
+                onClick={() => {
+                  if (window.innerWidth <= 768) {
+                    setActiveCard(activeCard === index ? null : index);
+                  }
+                }}>
                 {/* Background Image with Zoom Effect */}
                 <div style={{
                   position: 'absolute',
@@ -931,7 +1011,7 @@ function Homepage() {
                   transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
                   transform: 'scale(1.1)'
                 }}></div>
-                
+
                 {/* Animated Gradient Overlay */}
                 <div style={{
                   position: 'absolute',
@@ -942,7 +1022,7 @@ function Homepage() {
                   background: 'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%)',
                   transition: 'all 0.6s ease'
                 }}></div>
-                
+
                 {/* Shimmer Effect */}
                 <div style={{
                   position: 'absolute',
@@ -953,7 +1033,7 @@ function Homepage() {
                   background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
                   transition: 'all 0.8s ease'
                 }}></div>
-                
+
                 {/* Content Container */}
                 <div style={{
                   position: 'absolute',
@@ -965,9 +1045,9 @@ function Homepage() {
                 }}>
                   {/* Name - Much Lower Initial Position */}
                   <h3 style={{
-                    margin: '0', 
-                    fontSize: window.innerWidth <= 768 ? '1.2rem' : '1.7rem', 
-                    fontWeight: '800', 
+                    margin: '0',
+                    fontSize: window.innerWidth <= 768 ? '1.2rem' : '1.7rem',
+                    fontWeight: '800',
                     color: '#fff',
                     textShadow: window.innerWidth <= 768 ? '0 2px 4px rgba(0,0,0,0.8)' : '0 3px 6px rgba(0,0,0,0.7)',
                     transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -978,7 +1058,7 @@ function Homepage() {
                     display: 'block',
                     width: '100%'
                   }}>{member.name}</h3>
-                  
+
                   {/* Hover Content - Initially Hidden */}
                   <div style={{
                     marginTop: window.innerWidth <= 768 ? '8px' : '12px',
@@ -987,77 +1067,97 @@ function Homepage() {
                     transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                     width: '100%'
                   }}
-                  className="hover-content">
+                    className="hover-content">
                     {/* Position with Enhanced Styling */}
                     <p style={{
-                      margin: '0 0 ' + (window.innerWidth <= 768 ? '12px' : '20px') + ' 0', 
-                      fontSize: window.innerWidth <= 768 ? '0.85rem' : '1.1rem', 
-                      fontWeight: '600', 
+                      margin: '0 0 ' + (window.innerWidth <= 768 ? '12px' : '20px') + ' 0',
+                      fontSize: window.innerWidth <= 768 ? '0.85rem' : '1.1rem',
+                      fontWeight: '600',
                       color: 'rgba(255, 255, 255, 0.95)',
                       textShadow: window.innerWidth <= 768 ? '0 1px 3px rgba(0,0,0,0.8)' : '0 2px 4px rgba(0,0,0,0.6)',
                       letterSpacing: window.innerWidth <= 768 ? '0.3px' : '0.5px',
                       lineHeight: '1.4'
                     }}>{member.position}</p>
-                    
+
                     {/* Enhanced Company Logos */}
                     <div style={{
-                      display: 'flex', 
-                      flexWrap: 'wrap', 
-                      gap: window.innerWidth <= 768 ? '6px' : '10px', 
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: window.innerWidth <= 768 ? '6px' : '10px',
                       justifyContent: 'flex-start',
                       alignItems: 'center'
                     }}>
-                      {member.companies.slice(0, window.innerWidth <= 768 ? 4 : 6).map((logo, i) => (
+                      {(expandedLogos[index] ? member.companies : member.companies.slice(0, window.innerWidth <= 768 ? 4 : 6)).map((logo, i) => (
                         <div key={i} style={{
-                          width: window.innerWidth <= 768 ? '28px' : '42px', 
-                          height: window.innerWidth <= 768 ? '28px' : '42px', 
-                          display: 'flex', 
-                          alignItems: 'center', 
+                          width: window.innerWidth <= 768 ? '28px' : '42px',
+                          height: window.innerWidth <= 768 ? '28px' : '42px',
+                          display: 'flex',
+                          alignItems: 'center',
                           justifyContent: 'center',
                           background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
                           borderRadius: '50%',
                           padding: window.innerWidth <= 768 ? '3px' : '6px',
                           boxShadow: '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)',
-                          animation: `logoFadeIn 0.6s ease ${i * 0.1}s both`,
+                          animation: expandedLogos[index] && i >= (window.innerWidth <= 768 ? 4 : 6)
+                            ? `logoPopIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${(i - (window.innerWidth <= 768 ? 4 : 6)) * 0.1}s both`
+                            : `logoFadeIn 0.6s ease ${i * 0.1}s both`,
                           transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                           border: '1px solid rgba(255,255,255,0.6)'
                         }}
-                        onMouseEnter={(e) => {
-                          if (window.innerWidth > 768) {
-                            e.currentTarget.style.transform = 'scale(1.15) translateY(-2px)';
-                            e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.95)';
-                          }
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'scale(1) translateY(0)';
-                          e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)';
-                        }}>
-                          <img src={logo} alt="" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))'}} />
+                          onMouseEnter={(e) => {
+                            if (window.innerWidth > 768) {
+                              e.currentTarget.style.transform = 'scale(1.15) translateY(-2px)';
+                              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.95)';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)';
+                          }}>
+                          <img src={logo} alt="" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }} />
                         </div>
                       ))}
-                      {member.companies.length > (window.innerWidth <= 768 ? 4 : 6) && (
-                        <div style={{
-                          width: window.innerWidth <= 768 ? '28px' : '42px', 
-                          height: window.innerWidth <= 768 ? '28px' : '42px', 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          justifyContent: 'center',
-                          background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)',
-                          borderRadius: '50%',
-                          color: '#fff',
-                          fontSize: window.innerWidth <= 768 ? '0.65rem' : '0.75rem',
-                          fontWeight: '700',
-                          boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
-                          border: '1px solid rgba(255,255,255,0.3)',
-                          backdropFilter: 'blur(10px)'
-                        }}>
+                      {!expandedLogos[index] && member.companies.length > (window.innerWidth <= 768 ? 4 : 6) && (
+                        <div
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedLogos(prev => ({ ...prev, [index]: true }));
+                          }}
+                          style={{
+                            width: window.innerWidth <= 768 ? '28px' : '42px',
+                            height: window.innerWidth <= 768 ? '28px' : '42px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)',
+                            borderRadius: '50%',
+                            color: '#fff',
+                            fontSize: window.innerWidth <= 768 ? '0.65rem' : '0.75rem',
+                            fontWeight: '700',
+                            boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+                            border: '1px solid rgba(255,255,255,0.3)',
+                            backdropFilter: 'blur(10px)',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'scale(1.15)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.3) 100%)';
+                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.4)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'scale(1)';
+                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)';
+                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3)';
+                          }}
+                        >
                           +{member.companies.length - (window.innerWidth <= 768 ? 4 : 6)}
                         </div>
                       )}
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Enhanced Hover State Styles */}
                 <style jsx>{`
                   .expertise-card:hover {
@@ -1122,44 +1222,44 @@ function Homepage() {
       <section className="narrative-section" ref={narrativeSectionRef}>
         <div className={`narrative-content ${isVisible ? 'visible' : ''}`}>
           <div className={`narrative-boxes-grid ${isVisible ? 'visible' : ''}`}>
-          <div className="narrative-box">
-            <h3 className="narrative-box-title">The Problem</h3>
-            <p className="narrative-box-details">Institutions are expected to personalise learning, support wellbeing, and demonstrate outcomes while operating within rigid curricula, regulatory requirements, and organisational constraints. Most respond by layering platforms, assessments, consultants, and initiatives over time resulting in fragmentation, inconsistency, and operational fatigue.</p>
-          </div>
-          <div className="narrative-box">
-            <h3 className="narrative-box-title">The Opportunity</h3>
-            <p className="narrative-box-details">Education needs operating systems, not more software. There is a widening gap between institutional expectations and the systems available to deliver them effectively.</p>
-          </div>
+            <div className="narrative-box">
+              <h3 className="narrative-box-title">The Problem</h3>
+              <p className="narrative-box-details">Institutions are expected to personalise learning, support wellbeing, and demonstrate outcomes while operating within rigid curricula, regulatory requirements, and organisational constraints. Most respond by layering platforms, assessments, consultants, and initiatives over time resulting in fragmentation, inconsistency, and operational fatigue.</p>
+            </div>
+            <div className="narrative-box">
+              <h3 className="narrative-box-title">The Opportunity</h3>
+              <p className="narrative-box-details">Education needs operating systems, not more software. There is a widening gap between institutional expectations and the systems available to deliver them effectively.</p>
+            </div>
 
-          <div className="narrative-box">
-            <h3 className="narrative-box-title">The Solution – A Learning Operating System</h3>
-            <p className="narrative-box-details">Syndeou licenses an integrated learning operating system that defines how learning is understood, delivered, supported, and governed at an institutional level. Learning remains human-led. Technology supports insight and coordination.</p>
-          </div>
-          
-          <div className="narrative-box">
-            <h3 className="narrative-box-title">Business Model</h3>
-            <p className="narrative-box-details">Institutional licensing through one-time system implementation and recurring annual licences.</p>
-          </div>
-          
-          <div className="narrative-box">
-            <h3 className="narrative-box-title">Why This Team</h3>
-            <p className="narrative-box-details">A multidisciplinary team with experience in learning science, education systems, and institutional delivery has built Syndeou.</p>
-          </div>
-          <div
-            className="narrative-box cta-box"
-            role="button"
-            tabIndex={0}
-            onClick={scrollToContact}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                scrollToContact()
-              }
-            }}
-          >
-            <h3 className="narrative-box-title">Call to Action</h3>
-            <p className="narrative-box-details">Investor enquiries — request the deck or start a conversation.</p>
-          </div>
+            <div className="narrative-box">
+              <h3 className="narrative-box-title">The Solution – A Learning Operating System</h3>
+              <p className="narrative-box-details">Syndeou licenses an integrated learning operating system that defines how learning is understood, delivered, supported, and governed at an institutional level. Learning remains human-led. Technology supports insight and coordination.</p>
+            </div>
+
+            <div className="narrative-box">
+              <h3 className="narrative-box-title">Business Model</h3>
+              <p className="narrative-box-details">Institutional licensing through one-time system implementation and recurring annual licences.</p>
+            </div>
+
+            <div className="narrative-box">
+              <h3 className="narrative-box-title">Why This Team</h3>
+              <p className="narrative-box-details">A multidisciplinary team with experience in learning science, education systems, and institutional delivery has built Syndeou.</p>
+            </div>
+            <div
+              className="narrative-box cta-box"
+              role="button"
+              tabIndex={0}
+              onClick={scrollToContact}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  scrollToContact()
+                }
+              }}
+            >
+              <h3 className="narrative-box-title">Call to Action</h3>
+              <p className="narrative-box-details">Investor enquiries — request the deck or start a conversation.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1304,7 +1404,7 @@ function Homepage() {
         <div className={`our-team-content ${isOurTeamVisible ? 'visible' : ''}`}>
           <h2 className="our-team-title">Our Team</h2>
           <p className="our-team-subtitle">Syndeou is a team-led organisation built by people who understand learning systems and institutions.</p>
-          
+
           {/* Main Profile Section */}
           <div className="our-team-main-profile">
             <div className="our-team-profile-left">
@@ -1322,7 +1422,7 @@ function Homepage() {
           {/* Team Carousel Section - Full Width Overlay */}
           <div className="our-team-carousel">
             {teamMembers.map((member, index) => (
-              <div 
+              <div
                 key={index}
                 className={`our-team-carousel-item ${selectedTeamMember === index ? 'active' : ''}`}
                 onClick={() => setSelectedTeamMember(index)}
@@ -1347,121 +1447,121 @@ function Homepage() {
           </h2>
           <div className="how-we-work-content-grid">
             <div className="how-we-work-left-column">
-            <h3 className="how-we-work-subtitle">How We Work With Institutions</h3>
-            <div className="how-we-work-list">
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+              <h3 className="how-we-work-subtitle">How We Work With Institutions</h3>
+              <div className="how-we-work-list">
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">Alignment and scoping</h3>
+                    <p className="how-we-work-item-desc">Establish clear expectations and define the scope of implementation to ensure alignment with institutional goals.</p>
+                  </div>
                 </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">Alignment and scoping</h3>
-                  <p className="how-we-work-item-desc">Establish clear expectations and define the scope of implementation to ensure alignment with institutional goals.</p>
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">System deployment</h3>
+                    <p className="how-we-work-item-desc">Implement the learning operating system through a controlled, phased approach tailored to your institution.</p>
+                  </div>
                 </div>
-              </div>
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22 10V6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 10H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M7 14H7.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M11 18L14 15L18 19L22 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">Training and accreditation</h3>
+                    <p className="how-we-work-item-desc">Comprehensive training programs and certification pathways to ensure consistent, high-quality delivery across your team.</p>
+                  </div>
                 </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">System deployment</h3>
-                  <p className="how-we-work-item-desc">Implement the learning operating system through a controlled, phased approach tailored to your institution.</p>
-                </div>
-              </div>
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 10V6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 10H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M7 14H7.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M11 18L14 15L18 19L22 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">Training and accreditation</h3>
-                  <p className="how-we-work-item-desc">Comprehensive training programs and certification pathways to ensure consistent, high-quality delivery across your team.</p>
-                </div>
-              </div>
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 11L12 14L22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">Quality assurance and iteration</h3>
-                  <p className="how-we-work-item-desc">Ongoing monitoring, review, and iterative improvements to maintain excellence and adapt to evolving needs.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="how-we-work-right-column">
-            <h3 className="how-we-work-subtitle">Who We Work With</h3>
-            <div className="how-we-work-list">
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 21V19C17 17.9 16.1 17 15 17H5C3.9 17 3 17.9 3 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M21 21V19C20.9993 18.1137 20.7044 17.2528 20.1614 16.5523C19.6184 15.8519 18.8581 15.3516 18 15.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">Schools</h3>
-                  <p className="how-we-work-item-desc">Independent and private schools seeking coherent learning systems and sustainable educational frameworks.</p>
-                </div>
-              </div>
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M9 7H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M9 11H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M9 15H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">Education operators</h3>
-                  <p className="how-we-work-item-desc">Organizations managing multiple educational institutions and seeking consistency across their operations.</p>
-                </div>
-              </div>
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 21H7C5.9 21 5 20.1 5 19V5C5 3.9 5.9 3 7 3H17C18.1 3 19 3.9 19 5V19C19 20.1 18.1 21 17 21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M7 12H17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">Education groups committed to high-integrity</h3>
-                  <p className="how-we-work-item-desc">Educational networks and groups dedicated to maintaining the highest standards of learning quality and governance.</p>
-                </div>
-              </div>
-              <div className="how-we-work-item">
-                <div className="how-we-work-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="how-we-work-item-content">
-                  <h3 className="how-we-work-item-title">Sustainable learning environments</h3>
-                  <p className="how-we-work-item-desc">Institutions focused on creating long-term, sustainable learning systems that adapt and evolve over time.</p>
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 11L12 14L22 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M21 12V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">Quality assurance and iteration</h3>
+                    <p className="how-we-work-item-desc">Ongoing monitoring, review, and iterative improvements to maintain excellence and adapt to evolving needs.</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+            <div className="how-we-work-right-column">
+              <h3 className="how-we-work-subtitle">Who We Work With</h3>
+              <div className="how-we-work-list">
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 21V19C17 17.9 16.1 17 15 17H5C3.9 17 3 17.9 3 19V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M21 21V19C20.9993 18.1137 20.7044 17.2528 20.1614 16.5523C19.6184 15.8519 18.8581 15.3516 18 15.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">Schools</h3>
+                    <p className="how-we-work-item-desc">Independent and private schools seeking coherent learning systems and sustainable educational frameworks.</p>
+                  </div>
+                </div>
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M9 7H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M9 11H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M9 15H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">Education operators</h3>
+                    <p className="how-we-work-item-desc">Organizations managing multiple educational institutions and seeking consistency across their operations.</p>
+                  </div>
+                </div>
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 21H7C5.9 21 5 20.1 5 19V5C5 3.9 5.9 3 7 3H17C18.1 3 19 3.9 19 5V19C19 20.1 18.1 21 17 21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M12 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M7 12H17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">Education groups committed to high-integrity</h3>
+                    <p className="how-we-work-item-desc">Educational networks and groups dedicated to maintaining the highest standards of learning quality and governance.</p>
+                  </div>
+                </div>
+                <div className="how-we-work-item">
+                  <div className="how-we-work-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="how-we-work-item-content">
+                    <h3 className="how-we-work-item-title">Sustainable learning environments</h3>
+                    <p className="how-we-work-item-desc">Institutions focused on creating long-term, sustainable learning systems that adapt and evolve over time.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1470,7 +1570,7 @@ function Homepage() {
       <section id="how-we-make-money" className="how-we-make-money-section" ref={howWeMakeMoneySectionRef}>
         <div className={`how-we-make-money-content ${isHowWeMakeMoneyVisible ? 'visible' : ''}`}>
           <h2 className="how-we-make-money-title">HOW WE MAKE MONEY</h2>
-          
+
           <div className="how-we-make-money-grid">
             <div className="how-we-make-money-item">
               <h3 className="how-we-make-money-item-title">Commercial Model</h3>
@@ -1496,7 +1596,7 @@ function Homepage() {
       <section id="investor-faq" className="investor-faq-section" ref={investorFaqSectionRef}>
         <div className={`investor-faq-content ${isInvestorFaqVisible ? 'visible' : ''}`}>
           <h2 className="investor-faq-title">INVESTOR FAQ</h2>
-          
+
           <div className="investor-faq-grid">
             <div className="investor-faq-item">
               <h3 className="investor-faq-item-title">What problem does Syndeou solve?</h3>
@@ -1544,8 +1644,8 @@ function Homepage() {
             <div className="contact-card">
               <div className="contact-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4H20V20H4V4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M4 7L12 13L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4 4H20V20H4V4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M4 7L12 13L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <h3 className="contact-card-title">Email</h3>
@@ -1555,7 +1655,7 @@ function Homepage() {
             <div className="contact-card">
               <div className="contact-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C15.221 21.742 10.7415 19.558 7.39396 16.106C4.02046 12.7585 1.83596 8.279 1.57996 3.5C1.57996 2.96957 1.79064 2.46086 2.16571 2.08579C2.54078 1.71071 3.04949 1.5 3.57996 1.5H6.65996C6.89717 1.49978 7.13062 1.55744 7.3388 1.66752C7.54697 1.77761 7.72256 1.9366 7.84996 2.129L9.56996 4.779C9.70665 4.98631 9.78405 5.22616 9.7942 5.47374C9.80435 5.72132 9.74691 5.96658 9.62796 6.18L8.35796 8.46C9.57054 10.9246 11.4853 12.8393 13.95 14.052L16.23 12.782C16.4434 12.6631 16.6887 12.6057 16.9363 12.6158C17.1838 12.6259 17.4237 12.7033 17.631 12.84L20.281 14.56C20.4734 14.6874 20.6324 14.863 20.7425 15.0712C20.8525 15.2794 20.9102 15.5128 20.91 15.75V16.92H22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M22 16.92V20C22 20.5304 21.7893 21.0391 21.4142 21.4142C21.0391 21.7893 20.5304 22 20 22C15.221 21.742 10.7415 19.558 7.39396 16.106C4.02046 12.7585 1.83596 8.279 1.57996 3.5C1.57996 2.96957 1.79064 2.46086 2.16571 2.08579C2.54078 1.71071 3.04949 1.5 3.57996 1.5H6.65996C6.89717 1.49978 7.13062 1.55744 7.3388 1.66752C7.54697 1.77761 7.72256 1.9366 7.84996 2.129L9.56996 4.779C9.70665 4.98631 9.78405 5.22616 9.7942 5.47374C9.80435 5.72132 9.74691 5.96658 9.62796 6.18L8.35796 8.46C9.57054 10.9246 11.4853 12.8393 13.95 14.052L16.23 12.782C16.4434 12.6631 16.6887 12.6057 16.9363 12.6158C17.1838 12.6259 17.4237 12.7033 17.631 12.84L20.281 14.56C20.4734 14.6874 20.6324 14.863 20.7425 15.0712C20.8525 15.2794 20.9102 15.5128 20.91 15.75V16.92H22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <h3 className="contact-card-title">Phone</h3>
@@ -1565,8 +1665,8 @@ function Homepage() {
             <div className="contact-card">
               <div className="contact-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 22C12 22 20 16 20 10C19.9943 8.14329 19.2569 6.36256 17.9496 5.05035C16.6423 3.73814 14.8567 3.00001 13 3C11.1433 3.00001 9.35774 3.73814 8.05043 5.05035C6.74312 6.36256 6.00571 8.14329 6 10C6 16 14 22 14 22H12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 22C12 22 20 16 20 10C19.9943 8.14329 19.2569 6.36256 17.9496 5.05035C16.6423 3.73814 14.8567 3.00001 13 3C11.1433 3.00001 9.35774 3.73814 8.05043 5.05035C6.74312 6.36256 6.00571 8.14329 6 10C6 16 14 22 14 22H12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <h3 className="contact-card-title">Office</h3>
@@ -1576,8 +1676,8 @@ function Homepage() {
             <div className="contact-card">
               <div className="contact-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 7V12L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47714 2 2 6.47715 2 12C2 17.5228 6.47714 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 7V12L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47714 2 2 6.47715 2 12C2 17.5228 6.47714 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <h3 className="contact-card-title">Work Day</h3>
