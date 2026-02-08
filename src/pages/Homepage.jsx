@@ -99,39 +99,41 @@ function Homepage() {
       name: 'Mohammed Fakhro',
       position: 'INVESTOR & ENTREPRENEUR',
       image: '/images/Mofakhro.jpg',
-      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+      companies: ['/images/fakhro.jpg', '/images/mcdonalds.webp', '/images/Budgetcar.jpg', '/images/gbyd.jpg', '/images/s.png', '/images/gac.jpg']
     },
-    {
+  {
       name: 'Vivenne Ming',
       position: 'NEUROSCIENTIST & ENTREPRENUR',
       image: '/images/vivi.webp',
-      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+      companies: ['/images/humantrust.jpg', '/images/Robert_and_Ethel.jpg', '/images/singularity.jpg', '/images/socos.jpg', '/images/UCBerkeley.jpg', '/images/UCL.jpg']
     },
-    {
-      name: 'Sama yateem',
-      position: 'INVESTOR & ENTREPRENEUR',
-      image: '/images/samayateem.jpg',
+    // {
+    //   name: 'Sama yateem',
+    //   position: 'INVESTOR & ENTREPRENEUR',
+    //   image: '/images/samayateem.jpg',
 
-      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
-    },
+    //   companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+    // },
+    
     {
       name: 'Stuart Hosking',
       position: 'CEO & BOARD ADVISOR',
       image: '/images/stuarthosking.png',
-      // "C:\Users\Admin\Desktop\syndeou_website\syndeou_website\public\images\stuarthosking.png"
-      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+      // /images\stuarthosking.png"
+      companies: ['/images/analytixnow.jpg','/images/batelco.png','/images/csi.png','/images/ibm.jpg','/images/orangegroup.webp','/images/ybot.png']
     },
     {
       name: 'Tassos Fragkopoulos',
       position: 'CEO & BOARD ADVISOR',
       image: '/images/IMG_4779.JPG.jpeg',
-      companies: ['/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+      companies: ['/images/amex.png','/images/Citi-Bank.jpg','/images/horse.png','/images/vga.png']
     },
     {
       name: 'Ali Al Khalifa',
       position: 'INVESTOR & ENTREPRENEUR',
       image: '/images/AliAlKhalifa.jpg',
-      companies: ['/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
+      companies: ['/images/egg.jpg','/images/playsy.png','/images/rocket.png','/images/sayplay.png','/images/syWLL.png',
+]
     }
   ]
 
@@ -141,28 +143,28 @@ function Homepage() {
       position: 'Co-Founder & CEO',
       bio: 'Yana has over 15 years of experience as an entrepreneur and consultant, specialising in education, brain development, and child-focused innovation. She is currently Co-Founder and Director of Syndeou and a Director of VGA Holdings.',
       image: '/images/profile_dp.png',
-      companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/syinterprices.png', '/images/vgalogo.png', '/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png']
+      companies: ['/images/vga.png', '/images/vgaevents.png', '/images/playsy.png', '/images/metakid.png', '/images/moneytree.png', '/images/playbox.png', '/images/sayplay.png', '/images/syWLL.png', '/images/play.png']
     },
     {
       name: 'Eugen Brikcius',
-      position: 'Chief Growth & Strategy Officer',
+      position: 'Director of Product',
       bio: 'Eugen possess over 10 years of experience as a start-up CEO. His previous companies have been successfully exited to the likes of Alibaba in Asia and MAF Holdings in the GCC.',
       image: '/images/EUGENBrikciUS.jpg',
-      companies: ['/images/syinterprices.png', '/images/vgalogo.png', '/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png']
+      companies: ['/images/rocket.png', '/images/jenny.png', '/images/Wadi.png', '/images/noname.png', '/images/lazada.png']
     },
     {
       name: 'Adam Harcourt',
       position: 'Co-Founder & R&D Lead',
       bio: 'Adam has been involved in ALS development since its early stages. Across projects Adam has contributed in product strategy, market research, and system design. As R&D Lead, he works closely with technical teams on biometrics, data architecture, and applied AI across education platforms.',
       image: '/images/profile_dp2.png',
-      companies: ['/images/favicon.ico', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/vgalogo.png']
+      companies: ['/images/vga.png', '/images/vgaevents.png', '/images/sayplay.png', '/images/playbox.png']
     },
     {
       name: 'Brett Maclagan',
-      position: 'Chief Operating Officer',
+      position: 'Director of Business Development ',
       bio: 'Brett brings over 25 years of experience in management consulting and transformation delivery. He has advised Fortune 500 companies and government entities and previously served as a Senior Advisor at Roland Berger, Arthur D. Little, and McKinsey.',
       image: '/images/7F19965F-31D4-408D-9F01-0414B1FF634F-export.png',
-      companies: ['/images/favicon.ico', '/images/Playbox-Logo.jpg', '/images/roladberger.png', '/images/syinterprices.png']
+      companies: ['/images/vga.png', '/images/rolandberger.png', '/images/Mckinsey.png', '/images/ADL.png']
     }
   ]
 
@@ -873,30 +875,34 @@ function Homepage() {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: window.innerWidth <= 768 ? '6px' : '8px', justifyContent: 'center' }}>
                       {(expandedLogos['core-' + index] ? member.companies : member.companies.slice(0, window.innerWidth <= 768 ? 4 : 6)).map((logo, i) => (
                         <div key={i} style={{
-                          width: window.innerWidth <= 768 ? '40px' : '48px',
-                          height: window.innerWidth <= 768 ? '40px' : '48px',
+                          width: window.innerWidth <= 768 ? '44px' : '54px',
+                          height: window.innerWidth <= 768 ? '44px' : '54px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-                          borderRadius: '50%',
-                          padding: window.innerWidth <= 768 ? '6px' : '8px',
-                          boxShadow: '0 2px 8px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.8)',
-                          border: '1px solid rgba(255,255,255,0.5)',
+                          background: 'linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%)',
+                          borderRadius: '14px',
+                          padding: window.innerWidth <= 768 ? '8px' : '10px',
+                          boxShadow: '0 4px 15px rgba(102, 126, 234, 0.15), 0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)',
+                          border: '1.5px solid rgba(102, 126, 234, 0.2)',
                           animation: expandedLogos['core-' + index] && i >= (window.innerWidth <= 768 ? 4 : 6)
                             ? `logoPopIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${(i - (window.innerWidth <= 768 ? 4 : 6)) * 0.1}s both`
                             : `logoFadeIn 0.5s ease ${i * 0.1}s both`,
-                          transition: 'all 0.3s ease'
+                          transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                          position: 'relative',
+                          overflow: 'hidden'
                         }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-3px) scale(1.15)';
-                            e.currentTarget.style.boxShadow = '0 8px 20px rgba(102, 126, 234, 0.4)';
-                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%)';
+                            e.currentTarget.style.transform = 'translateY(-6px) scale(1.12) rotate(5deg)';
+                            e.currentTarget.style.boxShadow = '0 12px 35px rgba(102, 126, 234, 0.35), 0 6px 15px rgba(118, 75, 162, 0.25), inset 0 1px 0 rgba(255,255,255,1)';
+                            e.currentTarget.style.background = 'linear-gradient(145deg, #667eea 0%, #764ba2 100%)';
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.6)';
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.8)';
-                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)';
+                            e.currentTarget.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+                            e.currentTarget.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.15), 0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)';
+                            e.currentTarget.style.background = 'linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%)';
+                            e.currentTarget.style.borderColor = 'rgba(102, 126, 234, 0.2)';
                           }}>
                           <img src={logo} alt="" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1))' }} />
                         </div>
@@ -1094,25 +1100,32 @@ function Homepage() {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
-                          borderRadius: '50%',
-                          padding: window.innerWidth <= 768 ? '3px' : '6px',
-                          boxShadow: '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)',
+                          background: 'linear-gradient(145deg, rgba(255,255,255,0.98) 0%, rgba(248,249,255,0.95) 100%)',
+                          borderRadius: '12px',
+                          padding: window.innerWidth <= 768 ? '6px' : '8px',
+                          boxShadow: '0 6px 20px rgba(0,0,0,0.12), 0 3px 8px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.95)',
                           animation: expandedLogos[index] && i >= (window.innerWidth <= 768 ? 4 : 6)
                             ? `logoPopIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${(i - (window.innerWidth <= 768 ? 4 : 6)) * 0.1}s both`
                             : `logoFadeIn 0.6s ease ${i * 0.1}s both`,
-                          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                          border: '1px solid rgba(255,255,255,0.6)'
+                          transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                          border: '1.5px solid rgba(255,255,255,0.8)',
+                          backdropFilter: 'blur(10px)',
+                          position: 'relative',
+                          overflow: 'hidden'
                         }}
                           onMouseEnter={(e) => {
                             if (window.innerWidth > 768) {
-                              e.currentTarget.style.transform = 'scale(1.15) translateY(-2px)';
-                              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.95)';
+                              e.currentTarget.style.transform = 'scale(1.15) translateY(-4px) rotate(-3deg)';
+                              e.currentTarget.style.boxShadow = '0 15px 40px rgba(102, 126, 234, 0.3), 0 8px 20px rgba(118, 75, 162, 0.2), inset 0 1px 0 rgba(255,255,255,1)';
+                              e.currentTarget.style.background = 'linear-gradient(145deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%)';
+                              e.currentTarget.style.borderColor = 'rgba(102, 126, 234, 0.5)';
                             }
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'scale(1) translateY(0)';
-                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)';
+                            e.currentTarget.style.transform = 'scale(1) translateY(0) rotate(0deg)';
+                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.12), 0 3px 8px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.95)';
+                            e.currentTarget.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.98) 0%, rgba(248,249,255,0.95) 100%)';
+                            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.8)';
                           }}>
                           <img src={logo} alt="" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.2))' }} />
                         </div>
