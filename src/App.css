@@ -575,19 +575,28 @@
 .testimonials-list {
   display: flex;
   flex-direction: row;
-  gap: clamp(20px, 3vw, 32px);
+  align-items: stretch;
+  /* Ensure all cards stretch to same height */
   width: max-content;
-  padding: 0 clamp(24px, 4vw, 40px);
-  animation: testimonials-scroll 50s linear infinite;
+  padding: 20px 0;
+  /* Add vertical padding for hover lift room */
+  animation: testimonials-scroll 60s linear infinite;
+  /* Slightly slower for premium feel */
+  will-change: transform;
+}
+
+.testimonials-list:hover {
+  animation-play-state: paused;
 }
 
 @keyframes testimonials-scroll {
-  0% {
+  from {
     transform: translateX(0);
   }
 
-  100% {
-    transform: translateX(-50%);
+  to {
+    transform: translateX(-33.33333%);
+    /* Matches 3 identical sets of cards */
   }
 }
 
@@ -596,22 +605,29 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: min(380px, 85vw);
-  min-width: 320px;
+  width: 400px;
+  /* Fixed width for perfect alignment */
   background: rgba(255, 255, 255, 0.053);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding: 35px 30px;
-  border-radius: 20px;
-  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); */
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
+  padding: 45px 35px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-right: 32px;
+  /* Fixed spacing between all cards */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-/* .testimonial-card:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-} */
+/* Premium Hover Effects */
+@media (min-width: 769px) {
+  .testimonial-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(102, 126, 234, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(102, 126, 234, 0.1);
+  }
+}
 
 .testimonial-card::before {
   content: '"';

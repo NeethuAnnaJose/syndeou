@@ -101,7 +101,7 @@ function Homepage() {
       image: '/images/Mofakhro.jpg',
       companies: ['/images/fakhro.jpg', '/images/mcdonalds.webp', '/images/Budgetcar.jpg', '/images/gbyd.jpg', '/images/s.png', '/images/gac.jpg']
     },
-  {
+    {
       name: 'Vivenne Ming',
       position: 'NEUROSCIENTIST & ENTREPRENUR',
       image: '/images/vivi.webp',
@@ -114,26 +114,26 @@ function Homepage() {
 
     //   companies: ['/images/favicon.ico', '/images/metakid-logo.jpg', '/images/Moneytree_logo.png', '/images/Playbox-Logo.jpg', '/images/Playsy-logo.jpg', '/images/profile_dp4_old.png', '/images/syinterprices.png']
     // },
-    
+
     {
       name: 'Stuart Hosking',
       position: 'CEO & BOARD ADVISOR',
       image: '/images/stuarthosking.png',
       // /images\stuarthosking.png"
-      companies: ['/images/analytixnow.jpg','/images/batelco.png','/images/csi.png','/images/ibm.jpg','/images/orangegroup.webp','/images/ybot.png']
+      companies: ['/images/analytixnow.jpg', '/images/batelco.png', '/images/csi.png', '/images/ibm.jpg', '/images/orangegroup.webp', '/images/ybot.png']
     },
     {
       name: 'Tassos Fragkopoulos',
       position: 'CEO & BOARD ADVISOR',
       image: '/images/IMG_4779.JPG.jpeg',
-      companies: ['/images/amex.png','/images/Citi-Bank.jpg','/images/horse.png','/images/vga.png']
+      companies: ['/images/amex.png', '/images/Citi-Bank.jpg', '/images/horse.png', '/images/vga.png']
     },
     {
       name: 'Ali Al Khalifa',
       position: 'INVESTOR & ENTREPRENEUR',
       image: '/images/ALi.jpeg',
-      companies: ['/images/egg.jpg','/images/playsy.png','/images/rocket.png','/images/sayplay.png','/images/syWLL.png',
-]
+      companies: ['/images/egg.jpg', '/images/playsy.png', '/images/rocket.png', '/images/sayplay.png', '/images/syWLL.png',
+      ]
     }
   ]
 
@@ -692,7 +692,20 @@ function Homepage() {
               <blockquote className="testimonial-quote">&quot;Thank you for your time and insight into the market, you are the best I appreciate your hard work! The companies you choose are great.&quot;</blockquote>
               <cite className="testimonial-name">EFTHIMIOS V.</cite>
             </div>
-            {/* Duplicate set for seamless infinite scroll */}
+            {/* Duplicate set for seamless infinite scroll (set 2) */}
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;My child needs this system! My child is behind in math because she hasn&apos;t grasped some fundamentals and now her school expects her to learn new content!&quot;</blockquote>
+              <cite className="testimonial-name">Banca I</cite>
+            </div>
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;Why I like the meta learning system — it gives my child personalised tasks based on his learning preferences which is perfect for his ADHD. As well, I get to see how his soft-skills develop over time with the learning. I love this insight and it makes me feel confident about my son&apos;s development.&quot;</blockquote>
+              <cite className="testimonial-name">NIKOS S.</cite>
+            </div>
+            <div className="testimonial-card">
+              <blockquote className="testimonial-quote">&quot;Thank you for your time and insight into the market, you are the best I appreciate your hard work! The companies you choose are great.&quot;</blockquote>
+              <cite className="testimonial-name">EFTHIMIOS V.</cite>
+            </div>
+            {/* Duplicate set for seamless infinite scroll (set 3) */}
             <div className="testimonial-card">
               <blockquote className="testimonial-quote">&quot;My child needs this system! My child is behind in math because she hasn&apos;t grasped some fundamentals and now her school expects her to learn new content!&quot;</blockquote>
               <cite className="testimonial-name">Banca I</cite>
