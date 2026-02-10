@@ -131,7 +131,7 @@ function Homepage() {
     {
       name: 'Ali Al Khalifa',
       position: 'INVESTOR & ENTREPRENEUR',
-      image: '/images/AliAlKhalifa.jpg',
+      image: '/images/ALi.jpeg',
       companies: ['/images/egg.jpg','/images/playsy.png','/images/rocket.png','/images/sayplay.png','/images/syWLL.png',
 ]
     }
