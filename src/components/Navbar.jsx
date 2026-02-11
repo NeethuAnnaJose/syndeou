@@ -70,9 +70,14 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          Syndeou
-        </Link>
+       <Link to="/" className="navbar-logo">
+  <img
+    src="/images/syndeou-logo-blue.png"
+    alt="Syndeou Logo"
+    className="navbar-logo-img"
+  />
+</Link>
+
         <button 
           className="navbar-toggle"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
