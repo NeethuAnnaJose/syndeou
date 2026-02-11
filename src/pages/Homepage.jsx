@@ -1026,7 +1026,7 @@ function Homepage() {
                   bottom: '0',
                   backgroundImage: `url(${member.image})`,
                   backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  backgroundPosition: (['Tassos Fragkopoulos', 'Mohammed Fakhro'].includes(member.name) && window.innerWidth <= 768) ? 'center 10%' : 'center',
                   transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
                   transform: 'scale(1.1)'
                 }}></div>

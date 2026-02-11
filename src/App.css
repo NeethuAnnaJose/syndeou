@@ -450,7 +450,7 @@
 
 .what-we-do-title {
 
-  font-size: 2rem;
+  font-size: 2.5rem;
 
   font-weight: 800;
 
@@ -592,11 +592,11 @@
 
 .how-we-do-it-title {
 
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  color: var(--gray-dark);
+  color: var(--primary-blue);
 
   margin: 0 0 16px 0;
 
@@ -890,11 +890,11 @@
 
 .education-reality-header {
 
-  font-size: 1.8rem;
+  font-size: 2rem;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  color: var(--gray-dark);
+  color: var(--primary-blue);
 
   line-height: 1.25;
 
@@ -1102,11 +1102,11 @@
 
 .testimonials-title {
 
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  color: var(--gray-dark);
+  color: var(--primary-blue);
 
   text-align: center;
 
@@ -2344,7 +2344,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
 .our-system-title {
 
-  font-size: 3rem;
+  font-size: 2.5rem;
 
   font-weight: 800;
 
@@ -2564,7 +2564,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
   height: 100vh;
 
-  padding: 70px 20px;
+  /* padding: 70px 20px; */
 
   margin: 0;
 
@@ -3476,7 +3476,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
 .how-we-make-money-title {
 
-  font-size: 3rem;
+  font-size: 2.5rem;
 
   font-weight: 800;
 
@@ -3712,7 +3712,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
 .investor-faq-title {
 
-  font-size: 3rem;
+  font-size: 2.5rem;
 
   font-weight: 800;
 
@@ -4006,7 +4006,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
   padding-top: 100px;
 
-  font-size: 3rem;
+  font-size: 2.5rem;
 
   font-weight: 800;
 
@@ -8986,7 +8986,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
   max-height: none;
 
-  padding: 120px 40px 60px;
+  /* padding: 120px 40px 60px; */
 
   /* Further increased padding for navbar clearance */
 
@@ -9063,6 +9063,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
   flex-direction: column;
 
   align-items: center;
+      padding-top: 105px;
 
 }
 
@@ -9070,7 +9071,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
 .our-team-title {
 
-  font-size: 2.8rem;
+  font-size: 2.5rem;
 
   font-weight: 800;
 
@@ -9132,7 +9133,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
   overflow: hidden;
 
-  padding: 80px 0 0 0;
+  /* padding: 80px 0 0 0; */
 
   /* Increased to clear 70px navbar */
 
@@ -9162,9 +9163,9 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
 #our-team .our-team-title {
 
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 
-  margin: 20px 0 30px 0;
+  margin: 5px 0 30px 0;
 
   /* Increased from 10px to 30px */
 
