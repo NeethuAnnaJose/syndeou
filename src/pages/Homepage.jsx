@@ -621,12 +621,12 @@ function Homepage() {
             <div className="how-we-do-it-item">
               <span className="how-we-do-it-number">1</span>
               <h3 className="how-we-do-it-item-title">Understand the learner</h3>
-              <p className="how-we-do-it-item-desc">We start with a holistic view of each learner — strengths, needs, and context — before placement or personalisation.</p>
+              <p className="how-we-do-it-item-desc">We start with a holistic view of each learner strengths, needs, and context before placement or personalisation.</p>
             </div>
             <div className="how-we-do-it-item">
               <span className="how-we-do-it-number">2</span>
               <h3 className="how-we-do-it-item-title">Design the system</h3>
-              <p className="how-we-do-it-item-desc">We build one integrated operating system: curriculum, platform, insight layer, and governance — not separate tools.</p>
+              <p className="how-we-do-it-item-desc">We build one integrated operating system: curriculum, platform, insight layer, and governance not separate tools.</p>
             </div>
             <div className="how-we-do-it-item">
               <span className="how-we-do-it-number">3</span>
@@ -636,7 +636,7 @@ function Homepage() {
             <div className="how-we-do-it-item">
               <span className="how-we-do-it-number">4</span>
               <h3 className="how-we-do-it-item-title">Measure what matters</h3>
-              <p className="how-we-do-it-item-desc">We use AI for insight and visibility — not to replace judgement — so outcomes are measurable and human-led.</p>
+              <p className="how-we-do-it-item-desc">We use AI for insight and visibility not to replace judgement so outcomes are measurable and human led.</p>
             </div>
           </div>
         </div>

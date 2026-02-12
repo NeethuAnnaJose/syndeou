@@ -1356,7 +1356,7 @@
 
   min-height: 100vh;
 
-  padding: 120px 40px 60px;
+  padding: 10px 40px 60px;
 
   margin: 0;
 
@@ -1430,7 +1430,7 @@
 
   max-width: 960px;
 
-  height: min(65vh, calc(100vh - 80px));
+  /* height: min(65vh, calc(100vh - 80px)); */
 
   max-height: min(65vh, calc(100vh - 80px));
 
@@ -1584,54 +1584,16 @@
 
 /* Core Team - specific background */
 
-/* Core Team Section - Responsive Fit */
 #core-team.our-team-section {
+
   background: linear-gradient(180deg, #eaf7ff 0%, #ffffff 60%);
+
   background-size: cover;
+
   background-position: center;
+
   background-repeat: no-repeat;
-  min-height: 100vh;
-  height: auto;
-  overflow: visible;
-  padding-bottom: 40px;
-}
 
-#core-team .our-team-content {
-  padding-top: 60px !important;
-  display: flex;
-  flex-direction: column;
-  height: auto;
-}
-
-/* Tablet & Desktop: Force One Page Fit for Core Team */
-@media (min-width: 768px) {
-  #core-team.our-team-section {
-    height: 100vh;
-    overflow: hidden;
-    padding: 0 !important;
-  }
-
-  #core-team .our-team-content {
-    padding-top: 20px !important;
-    justify-content: flex-start;
-    height: 100%;
-    overflow: hidden !important;
-  }
-}
-
-#core-team .our-team-title {
-  padding-top: 0 !important;
-  margin-bottom: 40px !important;
-  margin-top: 0 !important;
-  flex-shrink: 0;
-}
-
-#core-team .our-team-carousel {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  height: auto;
-  flex-shrink: 1;
-  overflow: visible;
 }
 
 
@@ -9101,7 +9063,7 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
   flex-direction: column;
 
   align-items: center;
-  padding-top: 105px;
+      padding-top: 105px;
 
 }
 
@@ -9161,83 +9123,40 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
 /* Our Team Section - Fit in One Page */
 
-/* Our Team Section - Responsive Fit */
 #our-team.our-team-section {
+
+  height: 100vh;
+
   min-height: 100vh;
-  position: relative;
-  height: auto;
-  overflow-y: visible;
-  padding-bottom: 40px;
+
+  max-height: 100vh;
+
+  overflow: hidden;
+
+  /* padding: 80px 0 0 0; */
+
+  /* Increased to clear 70px navbar */
+
 }
+
+
 
 #our-team .our-team-content {
+
   display: flex;
+
   flex-direction: column;
-  padding: 80px 20px 40px 20px;
-  height: auto;
-}
 
-/* Tablet & Desktop: Force One Page Fit */
-@media (min-width: 768px) {
-  #our-team.our-team-section {
-    height: 100vh;
-    overflow: hidden;
-    padding: 0;
-  }
+  justify-content: flex-start;
 
-  #our-team .our-team-content {
-    height: 100%;
-    /* Removed side padding to allow carousel full width */
-    padding: 40px 0 0 0;
-    justify-content: flex-start;
-    overflow: hidden;
-    width: 100%;
-  }
+  height: 100%;
 
-  #our-team .our-team-title,
-  #our-team .our-team-subtitle {
-    flex: 0 0 auto;
-    margin-bottom: 10px !important;
-    padding: 0 40px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative !important;
-    /* Fix overlap */
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    text-align: center;
-  }
+  max-height: 100%;
 
-  #our-team .our-team-main-profile {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: grid;
-    align-items: center;
-    overflow: hidden;
-    margin: 0;
-    padding: 0 40px;
-    width: 100%;
-    box-sizing: border-box;
-  }
+  padding: 0;
 
-  /* Constraint image height to ensure one-page fit */
-  #our-team .our-team-main-profile img {
-    max-height: 55vh !important;
-    width: auto !important;
-    object-fit: contain;
-  }
+  max-width: 100%;
 
-  #our-team .our-team-carousel {
-    flex: 0 0 auto;
-    position: relative !important;
-    width: 100% !important;
-    bottom: auto !important;
-    margin: 0 !important;
-    padding: 0 0 50px 0;
-    /* Increased bottom padding for names */
-    z-index: 10;
-  }
 }
 
 
@@ -9913,24 +9832,9 @@ img[src*="7F19965F-31D4-408D-9F01-0414B1FF634F-export.png"] {
 
 
   .our-team-carousel-title {
+
     font-size: 0.65rem;
-  }
-}
 
-/* Ensure mobile scrolling is enabled for Core Team */
-@media (max-width: 767px) {
-  #core-team.our-team-section {
-    height: auto !important;
-    min-height: 100vh !important;
-    overflow-y: visible !important;
-    overflow-x: hidden !important;
-    padding-bottom: 60px !important;
   }
 
-  #core-team .our-team-content {
-    height: auto !important;
-    overflow: visible !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
 }
